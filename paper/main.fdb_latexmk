@@ -1,13 +1,21 @@
 # Fdb version 4
-["bibtex main"] 1767647730.31777 "main.aux" "main.bbl" "main" 1767647735.47162 0
+["bibtex main"] 1768681190.22888 "main.aux" "main.bbl" "main" 1768681195.30122 0
   "./icml2026.bst" 1762533924 27147 88eb4aed280e585571f8eac50f39a681 ""
   "./references.bib" 1767623287.94479 700 64a605ca2829729293abd930e32acc66 ""
-  "main.aux" 1767647733.74818 1961 c3ac6b0abf65fbe986c62153c7011704 "pdflatex"
+  "main.aux" 1768681193.88062 6047 fae75256b1877e0bc3cdd76ae87ce3b4 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1767647730.7494 "main.tex" "main.pdf" "main" 1767647735.47261 0
+["pdflatex"] 1768681190.67013 "main.tex" "main.pdf" "main" 1768681195.30242 0
+  "../figures/ERM_section_43.pdf" 1768679356.77646 13922 d49538301b37a4e747a47bc831eb951f ""
+  "../figures/MCS_section_43.pdf" 1768679611.48691 13046 5847f90ea2b02e368698c009c8ab4e66 ""
+  "../figures/SSDC_section_41.pdf" 1768656537.42487 10961 b456d37d275ffef7f4bd2f0d2e7b5bcd ""
+  "../figures/SSDC_section_42.pdf" 1768656234.29582 13857 c8cc7113fae2029d2263d9e1e0ffff21 ""
+  "../figures/layer_0_ablated.png" 1766871903 21626 c59689295c614bd303359c90599950ca ""
+  "../figures/layer_0_untrained_RPI.png" 1768483716 28365 48e4001067a104a54c2a4a78f9aaa0e4 ""
+  "../figures/layer_2_ablated.png" 1766871913 22989 df86b07bcd99f799fbaf267c0fa09673 ""
+  "../figures/layer_2_untrained_RPI.png" 1768483726 27772 b15c7571dc979877fe9d0e2d8f2dbe42 ""
   "/etc/texmf/web2c/texmf.cnf" 1766783909.20889 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -116,6 +124,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg" 1678741534 5594 45ca1ba048c2fa6267d5419cc463d804 ""
   "/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-ptm.cfg" 1678741534 12427 02d1873769280609ae2509e963f1fa66 ""
   "/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty" 1707919699 45458 f1c6cb3edd91174e966cbbaf88993bcf ""
+  "/usr/share/texlive/texmf-dist/tex/latex/placeins/placeins.sty" 1137110565 4087 636308456f60d2b31cbf97867db5708d ""
   "/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptm.fd" 1137110629 577 008ea4bacb8ccf8c2a39dc94e000ef1f ""
   "/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1137110629 961 15056f4a61917ceed3a44e4ac11fcc52 ""
   "/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty" 1586716065 856 8e0e5c8cca7b18e0400f97f5a2b90a99 ""
@@ -129,10 +138,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1766784150.00538 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1766784259 8214823 cc0482d0202066a11aab1bbfedc49937 ""
   "icml2026.sty" 1762533924 27344 8c96f291f57623e81d0a232c8de55616 ""
-  "main.aux" 1767647733.74818 1961 c3ac6b0abf65fbe986c62153c7011704 "pdflatex"
-  "main.bbl" 1767647730.72716 1001 6750ebe12b43d4d8c73a4e881ef24b4d "bibtex main"
-  "main.out" 1767647733.75318 1799 1469015435e1e161c86ae5283fea4273 "pdflatex"
-  "main.tex" 1767647719.82309 9713 04735fd140f5b1fb3f043e2512844c54 ""
+  "main.aux" 1768681193.88062 6047 fae75256b1877e0bc3cdd76ae87ce3b4 "pdflatex"
+  "main.bbl" 1768681190.6306 1001 6750ebe12b43d4d8c73a4e881ef24b4d "bibtex main"
+  "main.out" 1768681193.88462 3200 6d91e614417110bb4515dd0c4f59e6dd "pdflatex"
+  "main.tex" 1768681182.60354 16872 20ada81941b10d9959f75ca167cf4320 ""
   (generated)
   "main.aux"
   "main.log"

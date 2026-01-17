@@ -9,6 +9,7 @@
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{amsthm}
+\usepackage{placeins}
 
 
 \begin{document}
@@ -104,69 +105,113 @@
     normal and shifted datasets, respectively. Higher values indicate greater
     performance degradation.
 \section{Results}
-    \subsection{Spatial Structure Emerges Without Positional Embeddings}
-        \textbf{Experimental Setup:} We evaluate SSDC at layers 0, 2, 4, and 9 on the CIFAR-10 dataset
-        using the ablated and intact models. We also extract from each one of these layers the Token Cosine
-        Similarity Matrix and plot them using the same color scale.
-
+    \subsection{Architectural Priors Induce Static Spatial Correlations at Initialization}
+        \begin{minipage}{\linewidth}
+            \textbf{Experimental Setup:} We evaluate SSDC at layers 0, 2, 4, and 9 on the CIFAR-10 dataset
+            using untrained ablated models. 
+            We also extract from each one of these layers the Token Cosine
+            Similarity Matrix and plot them using the same color scale.
+        \end{minipage}
+        
+        
         \begin{figure}[t]
             \centering
-            \includegraphics[width=0.8\linewidth]{../figures/SSDC_evolution_ablated_vs_intact.pdf}
-            \caption{SSDC across layers for the intact and ablated models. Shaded regions indicate variability across runs.}
-            \label{fig:effective-rank}
+            \includegraphics[width=0.8\linewidth]{../figures/SSDC_section_41}
+            \caption{\textbf{SSDC across depth for an untrained ablated model.} SSDC remains approximately constant across layers, indicating static spatial correlations induced by architectural and data priors rather than learning. Shaded regions indicate variability across runs.}
+            \label{fig:SSDC}
         \end{figure}
 
-
         \textbf{Results}:
-        Across all evaluated depths, the ablated model consistently exhibits a lower SSDC than the intact model, 
-        indicating a modestly reduced spatial organization. The difference is largest in layer 0 (i.e. tokens pre-encoder block )
-        with an approximate value of 0.22, decreases at layer 2 to around 0.12, then remains roughly constant for the remaining layers.
-        This trend is consistent across runs.
+        The untrained ablated model exhibits a non-zero SSDC (~0.5) that remains approximately constant across depth (Fig. 1). This behavior is consistent across runs and indicates the presence of static spatial correlations induced by architectural and data priors rather than learning. Importantly, SSDC magnitude alone is insufficient to characterize learned spatial organization; instead, changes in SSDC across depth are the relevant signal.
+        
+        This static spatial structure can be visually demonstrated by token cosine similarity heatmaps that are shown in Appendix Fig. A1. 
 
-        \begin{figure}[t]
+        This provides a static baseline against which we can measure the emergence of learned spatial structure in trained models.
+
+    \subsection{Validating Emergent Spatial Structure via Extreme Counterfactuals}
+        \begin{minipage}{\linewidth}
+            \textbf{Experimental setup:} We compute Token Cosine Similarity Matrices from layers 0, 2, 4, and 9 and evaluate the proposed SSDC metric. We compare three settings: (i) an untrained model with tokens randomly permuted at inference time, serving as an extreme baseline with no spatial structure; (ii) a trained model without positional embeddings (trained ablated); and (iii) a fully trained intact model.
+        \end{minipage}
+
+
+        \textbf{Results:} The untrained model with random permutation exhibits a consistently negative and depth-invariant SSDC value, reflecting the absence of meaningful spatial organization in token representations. In contrast, the trained ablated model shows a clear and consistent increase in SSDC from layer 0 to layer 2, after which SSDC remains roughly constant across deeper layers (Fig. 3). This depth-dependent increase indicates the emergence of non-trivial spatial structure during training, despite the absence of explicit positional embeddings.
+
+        As expected, the trained intact model exhibits higher SSDC values across all layers, consistent with the direct contribution of explicit positional embeddings. Importantly, however, the presence of a strong SSDC increase in the trained ablated model demonstrates that spatial structure is not solely inherited from positional encodings, but can emerge implicitly through training dynamics and architectural biases.
+
+        Token Cosine Similarity Matrices (Fig. 4) provide a visual confirmation of these trends. The untrained model shows no coherent spatial pattern, with diffuse similarity and no clear evolution across layers. In contrast, the trained ablated model exhibits a progressively sharpening diagonal structure from layer 0 to layer 2, indicating increasing similarity between nearby tokens and the formation of a locality bias. This diagonal becomes more pronounced with depth, aligning with the observed SSDC growth.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.85\linewidth]{../figures/SSDC_section_42}
+            \caption{\textbf{SSDC across depth for an untrained model with random permutation, a trained ablated model, and a trained intact model.} Shaded regions indicate variability across runs.}
+            \label{fig:SSDC42}
+        \end{figure}
+        
+        \begin{figure}[H]
             \centering
 
-            \begin{subfigure}{0.4\linewidth}
+            \begin{subfigure}{0.36\linewidth}
                 \centering
-                \includegraphics[width=\linewidth]{../figures/layer_0.png}
-                \caption{Ablated model layer 0}
+                \includegraphics[width=\linewidth]{../figures/layer_0_untrained_RPI.png}
+                \caption{Untrained Ablated Model with Random Permutation Layer 0}
+                \label{fig:cosine-ablated-untrained-RPI-0}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}{0.36\linewidth}
+                \centering
+                \includegraphics[width=\linewidth]{../figures/layer_2_untrained_RPI.png}
+                \caption{Untrained Ablated Model with Random Permutation Layer 2}
+                \label{fig:cosine-ablated-untrained-RPI-2}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}{0.36\linewidth}
+                \centering
+                \includegraphics[width=\linewidth]{../figures/layer_0_ablated.png}
+                \caption{Trained Ablated Model Layer 0}
                 \label{fig:cosine-ablated-0}
             \end{subfigure}
             \hfill
-            \begin{subfigure}{0.4\linewidth}
+            \begin{subfigure}{0.36\linewidth}
                 \centering
-                \includegraphics[width=\linewidth]{../figures/layer_0_intact.png}
-                \caption{Intact model layer 0}
-                \label{fig:cosine-intact-0}
-            \end{subfigure}
-            \hfill
-            \begin{subfigure}{0.4\linewidth}
-                \centering
-                \includegraphics[width=\linewidth]{../figures/layer_2.png}
-                \caption{Ablated model layer 2}
+                \includegraphics[width=\linewidth]{../figures/layer_2_ablated.png}
+                \caption{Trained Ablated Model Layer 2}
                 \label{fig:cosine-ablated-2}
             \end{subfigure}
+            
+            \caption{
+            \textbf{Representative token cosine similarity matrices.} All matrices share the same color scale.
+            }
+            \label{fig:token-cosine-similarity-matrices-2}
+        \end{figure}
+        \begin{figure*}[t]
+            \centering
+            \begin{subfigure}[b]{0.44\textwidth}
+                \includegraphics[width=\textwidth]{../figures/ERM_section_43}
+                \caption{Effective Rank across depth (Intact vs Post-hoc Ablated)}
+                \label{fig:er_values}
+            \end{subfigure}
             \hfill
-            \begin{subfigure}{0.4\linewidth}
-                \centering
-                \includegraphics[width=\linewidth]{../figures/layer_2_intact.png}
-                \caption{Intact model layer 2}
-                \label{fig:cosine-intact-2}
+            \begin{subfigure}[b]{0.44\textwidth}
+                \includegraphics[width=\textwidth]{../figures/MCS_section_43}
+                \caption{Mean Token Cosine Similarity across depth (Intact vs Post-hoc Ablated)}
+                \label{fig:cos_sim_values}
             \end{subfigure}
 
             \caption{
-            \textbf{Token relationships before and after going through encoder blocks}
-            (a) Token Cosine Similarity on the ablated model at layer 0
-            (b) Token Cosine Similarity on the intact model at layer 0
-            (c) Token Cosine Similarity on the ablated model at layer 2
-            (d) Token Cosine Similarity on the intact model at layer 2
+            Early-layer representational diversity under intact and post-hoc ablated models.
+            Left: Effective Rank.
+            Right: Mean Token Cosine Similarity.
             }
-            \label{fig:token-cosine-similarity-matrices}
-        \end{figure}
+            \label{fig:4_3_main}
+        \end{figure*}
+    \subsection{Positional Embeddings Inject Early-Layer Representational Diversity}
 
-    \subsection{}
+        \textbf{Experimental setup:} We evaluate the Effective Rank of the Residual Stream Matrix at layers 0, 2, 4, and 9
+        on the CIFAR-10 dataset using ablated and intact models. We also extract the Token Cosine Similarity Matrix at these same layers from the same
+        models and calculate the mean value of the Token Cosine Similarities. To deduce the causal nature of the effects of PEs on these metrics, we repeat
+        these processes on an intact model that has its PEs removed post-hoc at inference.
 
-
+        \textbf{Results:}
+    \subsection{Patch-Relative and Absolute-Position-Based Modes of Spatial Organization}
 \bibliography{references}
 \bibliographystyle{icml2026}
 \end{document}

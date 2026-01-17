@@ -16,25 +16,35 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Spatial Similarity Distance Correlation}{2}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Fragility Score}{2}{subsection.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Results}{2}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Evolution of Spatial Structure Across Depth}{2}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Architectural Priors Induce Static Spatial Correlations at Initialization}{2}{subsection.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {SSDC across depth for an untrained ablated model.} SSDC remains approximately constant across layers, indicating static spatial correlations induced by architectural and data priors rather than learning. Shaded regions indicate variability across runs.}}{3}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:SSDC}{{1}{3}{\textbf {SSDC across depth for an untrained ablated model.} SSDC remains approximately constant across layers, indicating static spatial correlations induced by architectural and data priors rather than learning. Shaded regions indicate variability across runs}{figure.caption.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Validating Emergent Spatial Structure via Extreme Counterfactuals}{3}{subsection.4.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textbf  {SSDC across depth for an untrained model with random permutation, a trained ablated model, and a trained intact model.} Shaded regions indicate variability across runs.}}{3}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:SSDC42}{{2}{3}{\textbf {SSDC across depth for an untrained model with random permutation, a trained ablated model, and a trained intact model.} Shaded regions indicate variability across runs}{figure.caption.2}{}}
+\newlabel{fig:cosine-ablated-untrained-RPI-0}{{3a}{3}{Untrained Ablated Model with Random Permutation Layer 0}{figure.caption.3}{}}
+\newlabel{sub@fig:cosine-ablated-untrained-RPI-0}{{a}{3}{Untrained Ablated Model with Random Permutation Layer 0}{figure.caption.3}{}}
+\newlabel{fig:cosine-ablated-untrained-RPI-2}{{3b}{3}{Untrained Ablated Model with Random Permutation Layer 2}{figure.caption.3}{}}
+\newlabel{sub@fig:cosine-ablated-untrained-RPI-2}{{b}{3}{Untrained Ablated Model with Random Permutation Layer 2}{figure.caption.3}{}}
+\newlabel{fig:cosine-ablated-0}{{3c}{3}{Trained Ablated Model Layer 0}{figure.caption.3}{}}
+\newlabel{sub@fig:cosine-ablated-0}{{c}{3}{Trained Ablated Model Layer 0}{figure.caption.3}{}}
+\newlabel{fig:cosine-ablated-2}{{3d}{3}{Trained Ablated Model Layer 2}{figure.caption.3}{}}
+\newlabel{sub@fig:cosine-ablated-2}{{d}{3}{Trained Ablated Model Layer 2}{figure.caption.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  \textbf  {Representative token cosine similarity matrices.} All matrices share the same color scale. }}{3}{figure.caption.3}\protected@file@percent }
+\newlabel{fig:token-cosine-similarity-matrices-2}{{3}{3}{\textbf {Representative token cosine similarity matrices.} All matrices share the same color scale}{figure.caption.3}{}}
 \bibdata{references}
 \bibcite{chu2021}{{1}{2021}{{Chu et~al.}}{{Chu, Zhi, et~al.}}}
 \bibcite{originalvit2020}{{2}{2020}{{Dosovitskiy et~al.}}{{Dosovitskiy, Beyer, et~al.}}}
 \bibcite{islam2020}{{3}{2020}{{Islam et~al.}}{{Islam, Jia, et~al.}}}
 \bibcite{raghu2021}{{4}{2021}{{Raghu et~al.}}{{Raghu, Dosovitskiy, et~al.}}}
 \bibstyle{icml2026}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces SSDC across layers for the intact and ablated models. Shaded regions indicate variability across runs.}}{3}{figure.caption.1}\protected@file@percent }
-\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:effective-rank}{{1}{3}{SSDC across layers for the intact and ablated models. Shaded regions indicate variability across runs}{figure.caption.1}{}}
-\newlabel{fig:cosine-ablated-0}{{2a}{3}{Ablated model layer 0}{figure.caption.2}{}}
-\newlabel{sub@fig:cosine-ablated-0}{{a}{3}{Ablated model layer 0}{figure.caption.2}{}}
-\newlabel{fig:cosine-intact-0}{{2b}{3}{Intact model layer 0}{figure.caption.2}{}}
-\newlabel{sub@fig:cosine-intact-0}{{b}{3}{Intact model layer 0}{figure.caption.2}{}}
-\newlabel{fig:cosine-ablated-2}{{2c}{3}{Ablated model layer 2}{figure.caption.2}{}}
-\newlabel{sub@fig:cosine-ablated-2}{{c}{3}{Ablated model layer 2}{figure.caption.2}{}}
-\newlabel{fig:cosine-intact-2}{{2d}{3}{Intact model layer 2}{figure.caption.2}{}}
-\newlabel{sub@fig:cosine-intact-2}{{d}{3}{Intact model layer 2}{figure.caption.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  \textbf  {Token relationships before and after going through encoder blocks} (a) Token Cosine Similarity on the ablated model at layer 0 (b) Token Cosine Similarity on the intact model at layer 0 (c) Token Cosine Similarity on the ablated model at layer 2 (d) Token Cosine Similarity on the intact model at layer 2 }}{3}{figure.caption.2}\protected@file@percent }
-\newlabel{fig:token-cosine-similarity-matrices}{{2}{3}{\textbf {Token relationships before and after going through encoder blocks} (a) Token Cosine Similarity on the ablated model at layer 0 (b) Token Cosine Similarity on the intact model at layer 0 (c) Token Cosine Similarity on the ablated model at layer 2 (d) Token Cosine Similarity on the intact model at layer 2}{figure.caption.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}}{3}{subsection.4.2}\protected@file@percent }
-\gdef \@abspage@last{3}
+\newlabel{fig:er_values}{{4a}{4}{Effective Rank across depth (Intact vs Post-hoc Ablated)}{figure.caption.4}{}}
+\newlabel{sub@fig:er_values}{{a}{4}{Effective Rank across depth (Intact vs Post-hoc Ablated)}{figure.caption.4}{}}
+\newlabel{fig:cos_sim_values}{{4b}{4}{Mean Token Cosine Similarity across depth (Intact vs Post-hoc Ablated)}{figure.caption.4}{}}
+\newlabel{sub@fig:cos_sim_values}{{b}{4}{Mean Token Cosine Similarity across depth (Intact vs Post-hoc Ablated)}{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  Early-layer representational diversity under intact and post-hoc ablated models. Left: Effective Rank. Right: Mean Token Cosine Similarity. }}{4}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:4_3_main}{{4}{4}{Early-layer representational diversity under intact and post-hoc ablated models. Left: Effective Rank. Right: Mean Token Cosine Similarity}{figure.caption.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Positional Embeddings Inject Early-Layer Representational Diversity}{4}{subsection.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Patch-Relative and Absolute-Position-Based Modes of Spatial Organization}{4}{subsection.4.4}\protected@file@percent }
+\gdef \@abspage@last{4}
