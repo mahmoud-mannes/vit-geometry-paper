@@ -31,15 +31,7 @@
 \printAffiliationsAndNotice{}
 
 \begin{abstract}
-    Positional embeddings (PEs) in Vision Transformers (ViTs) are often viewed as simple spatial injectors 
-    that enable the model to encode absolute position. In this work, we show that even ViTs trained without PEs
-    can recover meaningful spatial structure and distinguish relative position using patch content alone. This raises a 
-    central question: if spatial structure can be reconstructed without PEs, what functional role do PEs actually play?
-    We find that PEs causally induce a dramatic increase in early-layer residual stream dimensionality and token heterogeneity, 
-    leading to richer image representations. PEs also introduce spatial structure prior to the encoder blocks and encourage
-    representations that jointly rely on positional information and patch content. In contrast, models without PEs rely 
-    exclusively on content-based heuristics to infer spatial structure, a strategy that is significantly more fragile to 
-    distributional shifts.
+    Positional embeddings (PEs) in Vision Transformers (ViTs) are often viewed as simple spatial injectors that enable the encoding of absolute position. In this work, we show that even ViTs trained without PEs can recover non-trivial spatial structure and distinguish relative position using patch content alone. This raises a central question: if spatial structure can emerge without PEs, what functional role do PEs actually play? We find that PEs causally induce a dramatic increase in early-layer representational diversity, characterized by higher effective rank and reduced token homogenization in the residual stream. This effect arises prior to the encoder blocks and encourages representations that jointly leverage positional information and patch content. In contrast, models without PEs rely exclusively on content-based heuristics to infer spatial structure, resulting in representations that are significantly more fragile under distributional shifts.
 
 \end{abstract}
 \section{Introduction}
@@ -110,7 +102,7 @@
             \textbf{Experimental Setup:} We evaluate SSDC at layers 0, 2, 4, and 9 on the CIFAR-10 dataset
             using untrained ablated models. 
             We also extract from each one of these layers the Token Cosine
-            Similarity Matrix and plot them using the same color scale.
+            Similarity Matrix and plot them using the same color scale (Appendix Fig. A2).
         \end{minipage}
         
         
@@ -186,32 +178,71 @@
             \centering
             \begin{subfigure}[b]{0.44\textwidth}
                 \includegraphics[width=\textwidth]{../figures/ERM_section_43}
-                \caption{Effective Rank across depth (Intact vs Post-hoc Ablated)}
+                \caption{Effective Rank across depth (Intact vs Post-hoc Ablated).}
                 \label{fig:er_values}
             \end{subfigure}
             \hfill
             \begin{subfigure}[b]{0.44\textwidth}
                 \includegraphics[width=\textwidth]{../figures/MCS_section_43}
-                \caption{Mean Token Cosine Similarity across depth (Intact vs Post-hoc Ablated)}
+                \caption{Mean Token Cosine Similarity across depth (Intact vs Post-hoc Ablated).}
                 \label{fig:cos_sim_values}
             \end{subfigure}
 
-            \caption{
-            Early-layer representational diversity under intact and post-hoc ablated models.
-            Left: Effective Rank.
-            Right: Mean Token Cosine Similarity.
+            \caption{Early-layer representational diversity under intact and post-hoc ablated positional embeddings.
+            Left: Effective Rank of the residual stream across layers. Right: Mean token-wise cosine similarity across layers. Results are shown for a fully intact ViT and the same trained model with positional embeddings removed post-hoc at inference time. The intact model exhibits substantially higher Effective Rank at layer 0 followed by an early collapse, while the post-hoc ablated model starts from a low-rank regime and remains consistently lower. Mean token cosine similarity is higher for the post-hoc ablated model across all layers.
             }
             \label{fig:4_3_main}
         \end{figure*}
     \subsection{Positional Embeddings Inject Early-Layer Representational Diversity}
 
-        \textbf{Experimental setup:} We evaluate the Effective Rank of the Residual Stream Matrix at layers 0, 2, 4, and 9
-        on the CIFAR-10 dataset using ablated and intact models. We also extract the Token Cosine Similarity Matrix at these same layers from the same
-        models and calculate the mean value of the Token Cosine Similarities. To deduce the causal nature of the effects of PEs on these metrics, we repeat
-        these processes on an intact model that has its PEs removed post-hoc at inference.
+        \textbf{Experimental setup:} We evaluate representational diversity in Vision Transformers using two complementary metrics: the Effective Rank of the residual stream and the mean token-wise cosine similarity. Experiments are conducted on CIFAR-10 using two models: (1) a standard ViT with intact positional embeddings, and (2) the same trained model with positional embeddings removed post-hoc at inference time.
 
-        \textbf{Results:}
+        Effective Rank is computed at layers 0, 2, 4, and 9, following standard practice as a proxy for the dimensional diversity of representations. In parallel, we compute the token-to-token cosine similarity matrix at the same layers and report its mean value as a measure of representational collapse across spatial tokens.
+
+        Crucially, because positional embeddings are removed only at inference time, any observed differences reflect the functional role of positional information during forward computation rather than differences in learned parameters.
+
+        \textbf{Results:} Figure 4 reveals a pronounced difference in representational diversity between intact and post-hoc ablated models that emerges immediately at the input layer. At layer 0, the intact model exhibits an Effective Rank approximately four times higher than that of the post-hoc ablated model, indicating that positional embeddings inject substantial high-dimensional diversity directly into the residual stream prior to any attention-based mixing.
+
+        Strikingly, this initial advantage does not persist unaltered. The intact model undergoes a sharp collapse in Effective Rank within the first two layers, after which its rank stabilizes and remains only slightly higher than that of the post-hoc ablated model for the remainder of the network. In contrast, the post-hoc ablated model begins in a low-rank regime and does not exhibit a comparable early collapse, instead maintaining a relatively stable but consistently lower Effective Rank across depth.
+
+        Mean token cosine similarity provides a complementary perspective. Across all layers and all runs, the post-hoc ablated model exhibits significantly higher token-wise similarity than the intact model, indicating persistent spatial homogenization when positional embeddings are removed. This elevated similarity is present from the earliest layer and does not disappear with depth, suggesting that the lack of positional information induces a sustained form of representational collapse across tokens.
+
+        Taken together, these results suggest a two-stage role for positional embeddings. First, they inject a large amount of representational diversity at the input, dramatically increasing the dimensionality of early representations. Second, the network rapidly compresses this diversity in early layers, likely retaining only task-relevant spatial structure. When positional embeddings are removed post-hoc, this initial high-diversity regime is never formed, and the model operates entirely within a low-rank, spatially homogeneous representational space despite unchanged learned parameters. 
+    \clearpage
+    
     \subsection{Patch-Relative and Absolute-Position-Based Modes of Spatial Organization}
+        \begin{figure}[t]
+            \centering
+            \includegraphics[width=0.8\linewidth]{../figures/SSDC_section_44}
+            \caption{\textbf{SSDC across depth for intact models, and intact/ablated models that have had their tokens permuted randomly at inference.} 
+            The SSDC collapses to near-zero values upon permutation of the tokens of the ablated model, whereas the intact model's SSDC only takes a slight hit
+            after permutation.
+            }
+            \label{fig:SSDC_44}
+        \end{figure}
+        \begin{figure}[t]
+            \begin{subfigure}{0.47\linewidth}
+                \centering
+                \includegraphics[width=\linewidth]{../figures/layer_2_perm_int.png}
+                \caption{Token Cosine Similarity Matrix for an intact model (permuted)}
+                \label{fig:TCSM_int_44}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}{0.47\linewidth}
+                \centering
+                \includegraphics[width=\linewidth]{../figures/layer_2_perm_abl.png}
+                \caption{Token Cosine Similarity Matrix for an ablated model (permuted)}
+                \label{fig:TCSM_abl_44}
+            \end{subfigure}
+            \caption{\textbf{Representative Token Cosine Similarity Matrices.} Once its tokens are permuted, the ablated model's 
+            Token Cosine Similarity Matrix becomes chaotic and loses all spatial structure, whereas the diagonal band persists (though fuzzier)
+            in the intact model's.
+            }
+            \label{fig:TCSM_44}
+        \end{figure}
+        \textbf{Experimental Setup: } Bla blablalbalbalbalbalbalblablablablablalblablalba
+
+        \textbf{Results: }
 \bibliography{references}
 \bibliographystyle{icml2026}
 \end{document}
