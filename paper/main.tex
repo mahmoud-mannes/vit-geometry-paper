@@ -102,7 +102,7 @@
             \textbf{Experimental Setup:} We evaluate SSDC at layers 0, 2, 4, and 9 on the CIFAR-10 dataset
             using untrained ablated models. 
             We also extract from each one of these layers the Token Cosine
-            Similarity Matrix and plot them using the same color scale (Appendix Fig. A2).
+            Similarity Matrix and plot them using the same color scale.
         \end{minipage}
         
         
@@ -122,7 +122,7 @@
 
     \subsection{Validating Emergent Spatial Structure via Extreme Counterfactuals}
         \begin{minipage}{\linewidth}
-            \textbf{Experimental setup:} We compute Token Cosine Similarity Matrices from layers 0, 2, 4, and 9 and evaluate the proposed SSDC metric. We compare three settings: (i) an untrained model with tokens randomly permuted at inference time, serving as an extreme baseline with no spatial structure; (ii) a trained model without positional embeddings (trained ablated); and (iii) a fully trained intact model.
+            \textbf{Experimental setup:} We compute Token Cosine Similarity Matrices from layers 0, 2, 4, and 9 and evaluate the SSDC on each of these layers. We compare three settings: (i) an untrained model with tokens randomly permuted at inference time, serving as an extreme baseline with no spatial structure; (ii) a trained model without positional embeddings (trained ablated); and (iii) a fully trained intact model.
         \end{minipage}
 
 
@@ -224,14 +224,14 @@
             \begin{subfigure}{0.47\linewidth}
                 \centering
                 \includegraphics[width=\linewidth]{../figures/layer_2_perm_int.png}
-                \caption{Token Cosine Similarity Matrix for an intact model (permuted)}
+                \caption{Token Cosine Similarity Matrix for an intact model (permuted) at layer 2}
                 \label{fig:TCSM_int_44}
             \end{subfigure}
             \hfill
             \begin{subfigure}{0.47\linewidth}
                 \centering
                 \includegraphics[width=\linewidth]{../figures/layer_2_perm_abl.png}
-                \caption{Token Cosine Similarity Matrix for an ablated model (permuted)}
+                \caption{Token Cosine Similarity Matrix for an ablated model (permuted) at layer 2}
                 \label{fig:TCSM_abl_44}
             \end{subfigure}
             \caption{\textbf{Representative Token Cosine Similarity Matrices.} Once its tokens are permuted, the ablated model's 
@@ -240,9 +240,19 @@
             }
             \label{fig:TCSM_44}
         \end{figure}
-        \textbf{Experimental Setup: } Bla blablalbalbalbalbalbalblablablablablalblablalba
+        \textbf{Experimental Setup: } We extract Token Cosine Similarity Matrices from layers 0, 2, 4, and 9 from intact models, permuted intact models,
+        and permuted ablated models. We plot these matrices and evaluate the SSDC across depth.
 
-        \textbf{Results: }
+        Notably, this permutation allows us to probe whether spatial organization is anchored to absolute position or emerges purely from patch content. Since token cosine similarity matrices are constructed according to token indices, this permutation disrupts the correspondence between matrix proximity and spatial proximity. Consequently, any diagonal structure observed after permutation cannot be attributed to local patch relationships and instead reflects the model’s reliance on absolute positional information.
+
+        \textbf{Results: } We find that ablated models collapse to near-zero SSDC values after permutation (Fig. 5). Combined with the fact that these models’ performance remains unchanged under permutation (Appendix Fig. A2), this indicates that ablated models form spatial structure primarily through patch content and relative relationships, without reliance on absolute token indices. As a result, permuting token order has no effect on which tokens become more similar as representations propagate through the network.
+
+        In contrast, intact models exhibit only a modest reduction in SSDC under permutation, suggesting that they rely more strongly on absolute token indices to organize spatial structure.
+
+        Interestingly, the SSDC of intact models under permutation drops sharply at layer 0 before gradually recovering across subsequent layers, remaining slightly below the unpermuted intact baseline. This pattern suggests that absolute positional information introduced by positional embeddings is progressively integrated within the encoder blocks, rather than being fully expressed at the input layer.
+
+        These trends are visually corroborated by the Token Cosine Similarity Matrices (Fig. 6). In the ablated models, permutation leads to a complete collapse of spatial structure, yielding matrices that appear random and unstructured. In contrast, intact models retain a fuzzy diagonal pattern after permutation, indicating that while absolute positional information plays a dominant role, patch content continues to contribute meaningfully to spatial organization.
+    \subsection{Robustness Is Tightly Linked to Spatial Encoding Strategy}
 \bibliography{references}
 \bibliographystyle{icml2026}
 \end{document}
