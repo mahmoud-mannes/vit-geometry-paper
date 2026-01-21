@@ -15,11 +15,11 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Residual Stream Geometry}{2}{subsection.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Spatial Similarity Distance Correlation}{2}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Fragility Score}{2}{subsection.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{2}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Architectural Priors Induce Static Spatial Correlations at Initialization}{2}{subsection.4.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {SSDC across depth for an untrained ablated model.} SSDC remains approximately constant across layers, indicating static spatial correlations induced by architectural and data priors rather than learning. Shaded regions indicate variability across runs.}}{3}{figure.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:SSDC}{{1}{3}{\textbf {SSDC across depth for an untrained ablated model.} SSDC remains approximately constant across layers, indicating static spatial correlations induced by architectural and data priors rather than learning. Shaded regions indicate variability across runs}{figure.caption.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Results}{3}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Architectural Priors Induce Static Spatial Correlations at Initialization}{3}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Validating Emergent Spatial Structure via Extreme Counterfactuals}{3}{subsection.4.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textbf  {SSDC across depth for an untrained model with random permutation, a trained ablated model, and a trained intact model.} Shaded regions indicate variability across runs.}}{3}{figure.caption.2}\protected@file@percent }
 \newlabel{fig:SSDC42}{{2}{3}{\textbf {SSDC across depth for an untrained model with random permutation, a trained ablated model, and a trained intact model.} Shaded regions indicate variability across runs}{figure.caption.2}{}}
@@ -40,12 +40,7 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Early-layer representational diversity under intact and post-hoc ablated positional embeddings. Left: Effective Rank of the residual stream across layers. Right: Mean token-wise cosine similarity across layers. Results are shown for a fully intact ViT and the same trained model with positional embeddings removed post-hoc at inference time. The intact model exhibits substantially higher Effective Rank at layer 0 followed by an early collapse, while the post-hoc ablated model starts from a low-rank regime and remains consistently lower. Mean token cosine similarity is higher for the post-hoc ablated model across all layers. }}{4}{figure.caption.4}\protected@file@percent }
 \newlabel{fig:4_3_main}{{4}{4}{Early-layer representational diversity under intact and post-hoc ablated positional embeddings. Left: Effective Rank of the residual stream across layers. Right: Mean token-wise cosine similarity across layers. Results are shown for a fully intact ViT and the same trained model with positional embeddings removed post-hoc at inference time. The intact model exhibits substantially higher Effective Rank at layer 0 followed by an early collapse, while the post-hoc ablated model starts from a low-rank regime and remains consistently lower. Mean token cosine similarity is higher for the post-hoc ablated model across all layers}{figure.caption.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Positional Embeddings Inject Early-Layer Representational Diversity}{4}{subsection.4.3}\protected@file@percent }
-\bibdata{references}
-\bibcite{chu2021}{{1}{2021}{{Chu et~al.}}{{Chu, Zhi, et~al.}}}
-\bibcite{originalvit2020}{{2}{2020}{{Dosovitskiy et~al.}}{{Dosovitskiy, Beyer, et~al.}}}
-\bibcite{islam2020}{{3}{2020}{{Islam et~al.}}{{Islam, Jia, et~al.}}}
-\bibcite{raghu2021}{{4}{2021}{{Raghu et~al.}}{{Raghu, Dosovitskiy, et~al.}}}
-\bibstyle{icml2026}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Patch-Relative and Absolute-Position-Based Modes of Spatial Organization}{4}{subsection.4.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {SSDC across depth for intact models, and intact/ablated models that have had their tokens permuted randomly at inference.} The SSDC collapses to near-zero values upon permutation of the tokens of the ablated model, whereas the intact model's SSDC only takes a slight hit after permutation. }}{5}{figure.caption.5}\protected@file@percent }
 \newlabel{fig:SSDC_44}{{5}{5}{\textbf {SSDC across depth for intact models, and intact/ablated models that have had their tokens permuted randomly at inference.} The SSDC collapses to near-zero values upon permutation of the tokens of the ablated model, whereas the intact model's SSDC only takes a slight hit after permutation}{figure.caption.5}{}}
 \newlabel{fig:TCSM_int_44}{{6a}{5}{Token Cosine Similarity Matrix for an intact model (permuted) at layer 2}{figure.caption.6}{}}
@@ -54,6 +49,16 @@
 \newlabel{sub@fig:TCSM_abl_44}{{b}{5}{Token Cosine Similarity Matrix for an ablated model (permuted) at layer 2}{figure.caption.6}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces \textbf  {Representative Token Cosine Similarity Matrices.} Once its tokens are permuted, the ablated model's Token Cosine Similarity Matrix becomes chaotic and loses all spatial structure, whereas the diagonal band persists (though fuzzier) in the intact model's. }}{5}{figure.caption.6}\protected@file@percent }
 \newlabel{fig:TCSM_44}{{6}{5}{\textbf {Representative Token Cosine Similarity Matrices.} Once its tokens are permuted, the ablated model's Token Cosine Similarity Matrix becomes chaotic and loses all spatial structure, whereas the diagonal band persists (though fuzzier) in the intact model's}{figure.caption.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4}Patch-Relative and Absolute-Position-Based Modes of Spatial Organization}{5}{subsection.4.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.5}Robustness Is Tightly Linked to Spatial Encoding Strategy}{5}{subsection.4.5}\protected@file@percent }
-\gdef \@abspage@last{5}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces \textbf  {Fragility scores for intact, ablated, and permutation-trained intact models.} Black markers show the mean Fragility Scores with ±1 standard deviation. Intact models are substantially more robust, while permutation-trained intact models exhibit fragility comparable to ablated models despite retaining positional embeddings.}}{6}{figure.caption.7}\protected@file@percent }
+\newlabel{fig:FS45}{{7}{6}{\textbf {Fragility scores for intact, ablated, and permutation-trained intact models.} Black markers show the mean Fragility Scores with ±1 standard deviation. Intact models are substantially more robust, while permutation-trained intact models exhibit fragility comparable to ablated models despite retaining positional embeddings}{figure.caption.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{6}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Related Work}{6}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{6}{section.7}\protected@file@percent }
+\bibdata{references}
+\bibcite{chu2021}{{1}{2021}{{Chu et~al.}}{{Chu, Zhi, et~al.}}}
+\bibcite{originalvit2020}{{2}{2020}{{Dosovitskiy et~al.}}{{Dosovitskiy, Beyer, et~al.}}}
+\bibcite{islam2020}{{3}{2020}{{Islam et~al.}}{{Islam, Jia, et~al.}}}
+\bibcite{raghu2021}{{4}{2021}{{Raghu et~al.}}{{Raghu, Dosovitskiy, et~al.}}}
+\bibstyle{icml2026}
+\gdef \@abspage@last{7}

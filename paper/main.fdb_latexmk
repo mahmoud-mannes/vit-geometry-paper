@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1768857928.57212 "main.aux" "main.bbl" "main" 1768857934.18396 0
+["bibtex main"] 1768991468.37574 "main.aux" "main.bbl" "main" 1768991474.89263 0
   "./icml2026.bst" 1762533924 27147 88eb4aed280e585571f8eac50f39a681 ""
   "./references.bib" 1767623287.94479 700 64a605ca2829729293abd930e32acc66 ""
-  "main.aux" 1768857932.83097 9186 5e22703134b4cc48da8db94a633926ff "pdflatex"
+  "main.aux" 1768991473.32059 10344 1aebfe15178eab0ba900887ad30c9ca4 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1768857929.12339 "main.tex" "main.pdf" "main" 1768857934.18508 0
+["pdflatex"] 1768991468.87775 "main.tex" "main.pdf" "main" 1768991474.89439 0
   "../figures/ERM_section_43.pdf" 1768679356.77646 13922 d49538301b37a4e747a47bc831eb951f ""
   "../figures/MCS_section_43.pdf" 1768679611.48691 13046 5847f90ea2b02e368698c009c8ab4e66 ""
   "../figures/SSDC_section_41.pdf" 1768656537.42487 10961 b456d37d275ffef7f4bd2f0d2e7b5bcd ""
@@ -19,12 +19,14 @@
   "../figures/layer_2_perm_abl.png" 1767034284 27863 85ff564fd84485d3ebcd83fabe0a6896 ""
   "../figures/layer_2_perm_int.png" 1766955618 27016 05d89c0ac31220b1811188c09de4694f ""
   "../figures/layer_2_untrained_RPI.png" 1768483726 27772 b15c7571dc979877fe9d0e2d8f2dbe42 ""
+  "../figures/robustness_pointplot.pdf" 1768905033.51393 11162 72c668066420dd69c28c82431e7cc3a9 ""
   "/etc/texmf/web2c/texmf.cnf" 1766783909.20889 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1136768653 2172 fd0c924230362ff848a33632ed45dc23 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm" 1136768653 4524 6bce29db5bc272ba5f332261583fee9c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm" 1136768653 2124 2601a75482e9426d33db523edf23570a ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8c.tfm" 1136768653 1352 fa28a7e6d323c65ce7d13d5342ff6be2 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm" 1136768653 4408 25b74d011a4c66b7f212c0cc3c90061b ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm" 1136768653 2288 f478fc8fed18759effb59f3dad7f3084 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm" 1136768653 4640 532ca3305aad10cc01d769f3f91f1029 ""
@@ -56,6 +58,7 @@
   "/usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb" 1136849748 45458 a3faba884469519614ca56ba5f6b1de1 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf" 1136768653 1372 788387fea833ef5963f4c5bffe33eb89 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf" 1136768653 1380 0ea3a3370054be6da6acd929ec569f06 ""
+  "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmr8c.vf" 1136768653 3556 8a9a6dcbcd146ef985683f677f4758a6 ""
   "/usr/share/texlive/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf" 1136768653 1384 a9d8adaf491ce34e5fba99dc7bbe5f39 ""
   "/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
@@ -131,6 +134,7 @@
   "/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptm.fd" 1137110629 577 008ea4bacb8ccf8c2a39dc94e000ef1f ""
   "/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd" 1137110629 961 15056f4a61917ceed3a44e4ac11fcc52 ""
   "/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty" 1586716065 856 8e0e5c8cca7b18e0400f97f5a2b90a99 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd" 1137110629 619 96f56dc5d1ef1fe1121f1cfeec70ee0c ""
   "/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty" 1576624809 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657483315 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty" 1698869629 10214 547fd4d29642cb7c80bf54b49d447f01 ""
@@ -141,10 +145,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1766784150.00538 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1766784259 8214823 cc0482d0202066a11aab1bbfedc49937 ""
   "icml2026.sty" 1762533924 27344 8c96f291f57623e81d0a232c8de55616 ""
-  "main.aux" 1768857932.83097 9186 5e22703134b4cc48da8db94a633926ff "pdflatex"
-  "main.bbl" 1768857929.08189 1001 6750ebe12b43d4d8c73a4e881ef24b4d "bibtex main"
-  "main.out" 1768857932.83497 3564 8bd256ff2148623f128dadd1dceaa1d9 "pdflatex"
-  "main.tex" 1768847471.28103 23936 74fb580b95d6e349968a3f375fc050ea ""
+  "main.aux" 1768991473.32059 10344 1aebfe15178eab0ba900887ad30c9ca4 "pdflatex"
+  "main.bbl" 1768991468.83253 1001 6750ebe12b43d4d8c73a4e881ef24b4d "bibtex main"
+  "main.out" 1768991473.32659 3859 ad01c612145d2050c245921303abdec8 "pdflatex"
+  "main.tex" 1768991458.09839 30669 169b4afee9620502825add087922a66c ""
   (generated)
   "main.aux"
   "main.log"
