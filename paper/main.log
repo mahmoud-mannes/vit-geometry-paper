@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.26)  21 JAN 2026 02:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.26)  21 JAN 2026 09:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -664,40 +664,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 174--174
 []\OT1/ptm/m/it/9 (+20) (d) |\OT1/ptm/m/n/9 (+20) Trained Ab-lated
  []
 
-<../figures/ERM_section_43.pdf, id=118, 319.01646pt x 224.46297pt>
+<../figures/ERM_section_43.pdf, id=118, 319.01646pt x 224.57362pt>
 File: ../figures/ERM_section_43.pdf Graphic file (type pdf)
 <use ../figures/ERM_section_43.pdf>
 Package pdftex.def Info: ../figures/ERM_section_43.pdf  used on input line 186.
 
-(pdftex.def)             Requested size: 214.64308pt x 151.02303pt.
-<../figures/MCS_section_43.pdf, id=119, 319.17519pt x 228.00833pt>
+(pdftex.def)             Requested size: 214.64308pt x 151.09747pt.
+<../figures/MCS_section_43.pdf, id=119, 319.03404pt x 224.57362pt>
 File: ../figures/MCS_section_43.pdf Graphic file (type pdf)
 <use ../figures/MCS_section_43.pdf>
 Package pdftex.def Info: ../figures/MCS_section_43.pdf  used on input line 192.
 
-(pdftex.def)             Requested size: 214.64308pt x 153.33186pt.
-
-Underfull \vbox (badness 2237) has occurred while \output is active []
-
- [3 <../figures/SSDC_section_41.pdf> <../figures/SSDC_section_42.pdf> <../figur
-es/layer_0_untrained_RPI.png> <../figures/layer_2_untrained_RPI.png> <../figure
-s/layer_0_ablated.png> <../figures/layer_2_ablated.png>]
+(pdftex.def)             Requested size: 214.64308pt x 151.09062pt.
+[3 <../figures/SSDC_section_41.pdf> <../figures/SSDC_section_42.pdf> <../figure
+s/layer_0_untrained_RPI.png> <../figures/layer_2_untrained_RPI.png> <../figures
+/layer_0_ablated.png> <../figures/layer_2_ablated.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 <../figures/SSDC_section_44.pdf, id=151, 326.38965pt x 228.00833pt>
 File: ../figures/SSDC_section_44.pdf Graphic file (type pdf)
 <use ../figures/SSDC_section_44.pdf>
-Package pdftex.def Info: ../figures/SSDC_section_44.pdf  used on input line 221
+Package pdftex.def Info: ../figures/SSDC_section_44.pdf  used on input line 222
 .
 (pdftex.def)             Requested size: 187.90271pt x 131.26727pt.
 <../figures/layer_2_perm_int.png, id=152, 462.528pt x 346.896pt>
 File: ../figures/layer_2_perm_int.png Graphic file (type png)
 <use ../figures/layer_2_perm_int.png>
 Package pdftex.def Info: ../figures/layer_2_perm_int.png  used on input line 23
-1.
+2.
 (pdftex.def)             Requested size: 110.3927pt x 82.79092pt.
 
-Underfull \hbox (badness 1087) in paragraph at lines 232--232
+Underfull \hbox (badness 1087) in paragraph at lines 233--233
 []\OT1/ptm/m/it/9 (+20) (a) |\OT1/ptm/m/n/9 (+20) To-ken Co-sine Sim-i-lar-ity
  []
 
@@ -705,10 +702,10 @@ Underfull \hbox (badness 1087) in paragraph at lines 232--232
 File: ../figures/layer_2_perm_abl.png Graphic file (type png)
 <use ../figures/layer_2_perm_abl.png>
 Package pdftex.def Info: ../figures/layer_2_perm_abl.png  used on input line 23
-8.
+9.
 (pdftex.def)             Requested size: 110.3927pt x 82.79092pt.
 
-Underfull \hbox (badness 1087) in paragraph at lines 239--239
+Underfull \hbox (badness 1087) in paragraph at lines 240--240
 []\OT1/ptm/m/it/9 (+20) (b) |\OT1/ptm/m/n/9 (+20) To-ken Co-sine Sim-i-lar-ity
  []
 
@@ -716,25 +713,30 @@ Underfull \hbox (badness 1087) in paragraph at lines 239--239
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4 <../figures/ERM_section_43.pdf> <../figures/MCS_section_43.pdf>]
-<../figures/robustness_pointplot.pdf, id=179, 245.718pt x 180.675pt>
-File: ../figures/robustness_pointplot.pdf Graphic file (type pdf)
-<use ../figures/robustness_pointplot.pdf>
-Package pdftex.def Info: ../figures/robustness_pointplot.pdf  used on input lin
-e 269.
-(pdftex.def)             Requested size: 199.64731pt x 146.80634pt.
+Underfull \vbox (badness 1210) has occurred while \output is active []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5 <../figures/SSDC_section_44.pdf> <../figures/layer_2_perm_int.png> <../figu
 res/layer_2_perm_abl.png>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<../figures/robustness_pointplot.pdf, id=201, 245.718pt x 180.675pt>
+File: ../figures/robustness_pointplot.pdf Graphic file (type pdf)
+<use ../figures/robustness_pointplot.pdf>
+Package pdftex.def Info: ../figures/robustness_pointplot.pdf  used on input lin
+e 270.
+(pdftex.def)             Requested size: 199.64731pt x 146.80634pt.
+
+Underfull \vbox (badness 1057) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6 <../figures/robustness_pointplot.pdf>] (./main.bbl) [7
+ [6 <../figures/robustness_pointplot.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] (./main.aux)
+
+(./main.bbl) [7] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -743,13 +745,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: AD01C612145D2050C245921303ABDEC8;3859.
  ) 
 Here is how much of TeX's memory you used:
- 15863 strings out of 474222
- 252126 string characters out of 5748732
+ 15881 strings out of 474222
+ 252270 string characters out of 5748732
  1944975 words of memory out of 5000000
  37563 multiletter control sequences out of 15000+600000
- 592965 words of font info for 264 fonts, out of 8000000 for 9000
+ 593673 words of font info for 276 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,11n,79p,1001b,633s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,11n,79p,1020b,633s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texli
@@ -761,9 +763,9 @@ blic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
 utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (7 pages, 338533 bytes).
+Output written on main.pdf (7 pages, 343303 bytes).
 PDF statistics:
- 285 PDF objects out of 1000 (max. 8388607)
+ 287 PDF objects out of 1000 (max. 8388607)
  201 compressed objects within 3 object streams
  38 named destinations out of 1000 (max. 500000)
  53965 words of extra memory for PDF output out of 61914 (max. 10000000)

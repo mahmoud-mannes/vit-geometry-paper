@@ -128,11 +128,11 @@ Together, our results provide a detailed and novel view of how explicit position
 
     \subsection{Validating Emergent Spatial Structure via Extreme Counterfactuals}
         \begin{minipage}{\linewidth}
-            \textbf{Experimental setup:} We compute Token Cosine Similarity Matrices from layers 0, 2, 4, and 9 and evaluate the SSDC on each of these layers. We compare three settings: (i) an untrained model with tokens randomly permuted at inference time, serving as an extreme baseline with no spatial structure; (ii) a trained model without positional embeddings (trained ablated); and (iii) a fully trained intact model.
+            \textbf{Experimental setup:} We compute Token Cosine Similarity Matrices from layers 0, 2, 4, and 9 and evaluate the SSDC on each of these layers. We compare three settings: (i) an untrained ablated model with tokens randomly permuted at inference time, serving as an extreme baseline with no spatial structure; (ii) a trained model without positional embeddings (trained ablated); and (iii) a fully trained intact model.
         \end{minipage}
 
 
-        \textbf{Results:} The untrained model with random permutation exhibits a consistently negative and depth-invariant SSDC value, reflecting the absence of meaningful spatial organization in token representations. In contrast, the trained ablated model shows a clear and consistent increase in SSDC from layer 0 to layer 2, after which SSDC remains roughly constant across deeper layers (Fig. 3). This depth-dependent increase indicates the emergence of non-trivial spatial structure during training, despite the absence of explicit positional embeddings.
+        \textbf{Results:} The untrained ablated model with random permutation exhibits a consistently negative and depth-invariant SSDC value, reflecting the absence of meaningful spatial organization in token representations. In contrast, the trained ablated model shows a clear and consistent increase in SSDC from layer 0 to layer 2, after which SSDC remains roughly constant across deeper layers (Fig. 3). This depth-dependent increase indicates the emergence of non-trivial spatial structure during training, despite the absence of explicit positional embeddings.
 
         As expected, the trained intact model exhibits higher SSDC values across all layers, consistent with the direct contribution of explicit positional embeddings. Importantly, however, the presence of a strong SSDC increase in the trained ablated model demonstrates that spatial structure is not solely inherited from positional encodings, but can emerge implicitly through training dynamics and architectural biases.
 
@@ -140,7 +140,7 @@ Together, our results provide a detailed and novel view of how explicit position
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.85\linewidth]{../figures/SSDC_section_42}
-            \caption{\textbf{SSDC across depth for an untrained model with random permutation, a trained ablated model, and a trained intact model.} Shaded regions indicate variability across runs.}
+            \caption{\textbf{SSDC across depth for an untrained ablated model with random permutation, a trained ablated model, and a trained intact model.} Shaded regions indicate variability across runs.}
             \label{fig:SSDC42}
         \end{figure}
         
@@ -184,28 +184,29 @@ Together, our results provide a detailed and novel view of how explicit position
             \centering
             \begin{subfigure}[b]{0.44\textwidth}
                 \includegraphics[width=\textwidth]{../figures/ERM_section_43}
-                \caption{Effective Rank across depth (Intact vs Post-hoc Ablated).}
+                \caption{Effective Rank across depth (Intact vs Post-hoc Ablated vs Untrained Intact).}
                 \label{fig:er_values}
             \end{subfigure}
             \hfill
             \begin{subfigure}[b]{0.44\textwidth}
                 \includegraphics[width=\textwidth]{../figures/MCS_section_43}
-                \caption{Mean Token Cosine Similarity across depth (Intact vs Post-hoc Ablated).}
+                \caption{Mean Token Cosine Similarity across depth (Intact vs Post-hoc Ablated vs Untrained Intact).}
                 \label{fig:cos_sim_values}
             \end{subfigure}
 
             \caption{Early-layer representational diversity under intact and post-hoc ablated positional embeddings.
-            Left: Effective Rank of the residual stream across layers. Right: Mean token-wise cosine similarity across layers. Results are shown for a fully intact ViT and the same trained model with positional embeddings removed post-hoc at inference time. The intact model exhibits substantially higher Effective Rank at layer 0 followed by an early collapse, while the post-hoc ablated model starts from a low-rank regime and remains consistently lower. Mean token cosine similarity is higher for the post-hoc ablated model across all layers.
+            Left: Effective Rank of the residual stream across layers. Right: Mean token-wise cosine similarity across layers. Results are shown for a fully intact ViT, the same trained model with positional embeddings removed post-hoc at inference time, and a completely untrained intact model. The intact model exhibits substantially higher Effective Rank at layer 0 followed by an early collapse, while the post-hoc ablated model starts from a low-rank regime and remains consistently lower. Mean token cosine similarity is higher for the post-hoc ablated model across all layers.
             }
             \label{fig:4_3_main}
         \end{figure*}
     \subsection{Positional Embeddings Inject Early-Layer Representational Diversity}
 
-        \textbf{Experimental setup:} We evaluate representational diversity in Vision Transformers using two complementary metrics: the Effective Rank of the residual stream and the mean token-wise cosine similarity. Experiments are conducted on CIFAR-10 using two models: (1) a standard ViT with intact positional embeddings, and (2) the same trained model with positional embeddings removed post-hoc at inference time.
+        \textbf{Experimental setup:} We evaluate representational diversity in Vision Transformers using two complementary metrics: the Effective Rank of the residual stream and the mean token-wise cosine similarity. Experiments are conducted on CIFAR-10 using two models: (1) a standard ViT with intact positional embeddings, (2) the same trained model with positional embeddings removed post-hoc at inference time, and (3) an untrained model with untrained PEs initialized at random.
 
         Effective Rank is computed at layers 0, 2, 4, and 9, following standard practice as a proxy for the dimensional diversity of representations. In parallel, we compute the token-to-token cosine similarity matrix at the same layers and report its mean value as a measure of representational collapse across spatial tokens.
 
         Crucially, because positional embeddings are removed only at inference time, any observed differences reflect the functional role of positional information during forward computation rather than differences in learned parameters.
+        Additionally, by observing the behavior of the untrained intact model, we can distinguish functionally meaningful representational diversity from representational diversity that is a result of random noise injections.
 
         \textbf{Results:} Figure 4 reveals a pronounced difference in representational diversity between intact and post-hoc ablated models that emerges immediately at the input layer. At layer 0, the intact model exhibits an Effective Rank approximately four times higher than that of the post-hoc ablated model, indicating that positional embeddings inject substantial high-dimensional diversity directly into the residual stream prior to any attention-based mixing.
 
@@ -213,7 +214,7 @@ Together, our results provide a detailed and novel view of how explicit position
 
         Mean token cosine similarity provides a complementary perspective. Across all layers and all runs, the post-hoc ablated model exhibits significantly higher token-wise similarity than the intact model, indicating persistent spatial homogenization when positional embeddings are removed. This elevated similarity is present from the earliest layer and does not disappear with depth, suggesting that the lack of positional information induces a sustained form of representational collapse across tokens.
 
-        
+        Comparing the evolution of representational diversity across depth, we observe that untrained intact models do not exhibit the sharp post-early-layer collapse in effective rank seen in trained intact models. Consistent with this, the mean token-wise cosine similarity in untrained intact models remains approximately constant across depth, in contrast to the progressive increase observed in trained models.
     
     \subsection{Patch-Relative and Absolute-Position-Based Modes of Spatial Organization}
         \begin{figure}[t]
@@ -278,7 +279,15 @@ Together, our results provide a detailed and novel view of how explicit position
         Taken together, these results demonstrate that absolute-position-based spatial strategies, enabled by positional embeddings, are a key contributor to the stability of ViT representations under distributional shifts. Robustness cannot be explained solely by representational richness; the mode of spatial organization (absolute versus patch-relative) is a decisive factor. These findings complement our earlier analyses of representational geometry and spatial structure, linking internal organizational principles directly to functional resilience.
 
 \section{Discussion}
-        Our results provide evidence that positional embeddings do more than just inject positional information. Rather, it seems that they 
+Our results indicate that positional embeddings play a role that extends beyond injecting absolute positional information. Across models with intact positional embeddings, we consistently observe increased representational diversity in early layers, as reflected by elevated effective rank and reduced mean token-wise cosine similarity. This diversity persists weakly through depth and appears to act as a structural capacity rather than a direct determinant of performance. Notably, this capacity is necessary but not sufficient: RPT-RPI intact models retain high effective rank and low cosine similarity while exhibiting weak performance and low robustness (Appendix Fig. LALALALA). The causal role of positional embeddings is further supported by post-hoc ablation experiments, where removing positional embeddings at inference time induces an immediate collapse in effective rank and increased token homogeneity, despite identical learned parameters.
+
+A natural alternative explanation for these observations is that the increased effective rank and reduced cosine similarity associated with positional embeddings merely reflect unstructured decorrelation or noise. Several findings argue against this interpretation. Although untrained intact models also exhibit high effective rank, this diversity neither collapses across depth nor is accompanied by an increase in token-wise cosine similarity. In contrast, trained intact models display a coordinated pattern in which early representational diversity is progressively consolidated, with effective rank collapsing and token similarity increasing across layers. This behavior is inconsistent with stochastic noise, which would be expected to persist diffusely rather than undergo selective compression. Instead, these dynamics suggest that positional embeddings introduce a high-dimensional representational capacity that training actively organizes into structured, task-aligned subspaces.
+
+Beyond representational geometry, positional embeddings also induce a qualitative shift in how spatial structure is formed. In the absence of positional embeddings, ViTs rely predominantly on patch content to infer relative spatial relationships, resulting in a content-based mode of spatial organization. When positional embeddings are present and combined with consistent patch ordering, models increasingly adopt an index-based strategy that leverages absolute positional information. While this aligns with common intuitions about the role of positional embeddings, our results indicate that this shift is not absolute: even intact models continue to subtly exploit patch content when forming spatial structure, suggesting that these strategies coexist rather than replace one another.
+
+Finally, this shift in spatial organization has direct implications for robustness. Models that rely more heavily on index-based strategies are consistently more robust to distributional shifts. In contrast, content-based spatial organization is particularly vulnerable to perturbations that alter local patch statistics, which can disrupt the model’s ability to infer coherent spatial relationships. This supports the interpretation that positional embeddings improve robustness not simply by increasing performance, but by biasing ViTs toward a mode of spatial reasoning that is less sensitive to changes in patch content.
+
+Taken together, these findings suggest that positional embeddings act as a structural bias that reshapes the geometry of the representation space and alters the dominant strategy by which spatial information is encoded and used. Rather than serving as a passive positional signal, positional embeddings influence how diversity is introduced, organized, and ultimately integrated into task-relevant computation, with measurable consequences for robustness and generalization.
         
         \textbf{Limitations and Future Directions}
 
@@ -290,10 +299,9 @@ Together, our results provide a detailed and novel view of how explicit position
 \section{Related Work}
         Placeholder text
 \section{Conclusion}
-       In this work, we show that Vision Transformers can retain meaningful spatial structure even in the absence of positional embeddings. Ablated models exhibit coherent, patch-relative organization and non-trivial performance, indicating that spatial reasoning can emerge implicitly from patch content alone. However, this structure is fragile and leads to distinct failure modes, particularly under distributional perturbations.
+       In this work, we investigated how positional embeddings shape spatial organization and representation geometry in Vision Transformers. We show that even in the absence of positional embeddings, ViTs retain non-trivial spatial structure through a patch-relative, content-based mode of organization. However, this structure is fragile and corresponds to limited representational consolidation. When positional embeddings are present, they introduce substantial early-layer representational diversity and induce a qualitatively different pattern of representation dynamics, characterized by coordinated rank collapse and increased token similarity across depth.
 
-Positional embeddings introduce increased representational diversity and push ViTs into a different operating regime, one that relies more heavily on absolute spatial structure and exhibits improved robustness. Rather than acting as a simple positional signal, PEs function as a structural bias that reshapes how spatial information is represented and used. These findings suggest that spatial organization in ViTs is not fixed, but depends critically on the inductive biases imposed during training, with concrete implications for robustness and generalization.
-
+These findings indicate that positional embeddings act as a structural bias that alters both the geometry of the latent space and the dominant strategy by which spatial information is encoded. By pushing ViTs toward an index-based mode of spatial organization, positional embeddings promote more stable and robust representations under distributional shift, while still allowing patch content to play a secondary role. More broadly, our results suggest that spatial reasoning in ViTs emerges from the interaction between inductive bias, training dynamics, and representational geometry, rather than from positional encoding alone. Understanding and controlling these interactions may be critical for designing transformer-based vision models that generalize reliably beyond their training distributions.
 \bibliography{references}
 \bibliographystyle{icml2026}
 \end{document}
