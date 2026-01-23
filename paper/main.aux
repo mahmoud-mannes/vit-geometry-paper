@@ -2,10 +2,10 @@
 \providecommand\hyper@newdestlabel[2]{}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
-\citation{originalvit2020}
-\citation{chu2021}
-\citation{islam2020}
-\citation{raghu2021}
+\citation{dosovitskiy2021an}
+\citation{chu2023conditional}
+\citation{Islam*2020How}
+\citation{raghu2021do}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}Background and Setup}{2}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Vision Transformer Architecture}{2}{subsection.2.1}\protected@file@percent }
@@ -15,14 +15,14 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Residual Stream Geometry}{2}{subsection.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Spatial Similarity Distance Correlation}{2}{subsection.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Fragility Score}{2}{subsection.3.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {SSDC across depth for an untrained ablated model.} SSDC remains approximately constant across layers, indicating static spatial correlations induced by architectural and data priors rather than learning. Shaded regions indicate variability across runs.}}{3}{figure.caption.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces \textbf  {SSDC across depth for an untrained ablated model.} SSDC remains approximately constant and at a relatively high value across layers, indicating static spatial correlations induced by architectural and data priors rather than learning. Shaded regions indicate variability across runs (±1 standard deviation).}}{3}{figure.caption.1}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
-\newlabel{fig:SSDC}{{1}{3}{\textbf {SSDC across depth for an untrained ablated model.} SSDC remains approximately constant across layers, indicating static spatial correlations induced by architectural and data priors rather than learning. Shaded regions indicate variability across runs}{figure.caption.1}{}}
+\newlabel{fig:SSDC}{{1}{3}{\textbf {SSDC across depth for an untrained ablated model.} SSDC remains approximately constant and at a relatively high value across layers, indicating static spatial correlations induced by architectural and data priors rather than learning. Shaded regions indicate variability across runs (±1 standard deviation)}{figure.caption.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Results}{3}{section.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Architectural Priors Induce Static Spatial Correlations at Initialization}{3}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Validating Emergent Spatial Structure via Extreme Counterfactuals}{3}{subsection.4.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textbf  {SSDC across depth for an untrained ablated model with random permutation, a trained ablated model, and a trained intact model.} Shaded regions indicate variability across runs.}}{3}{figure.caption.2}\protected@file@percent }
-\newlabel{fig:SSDC42}{{2}{3}{\textbf {SSDC across depth for an untrained ablated model with random permutation, a trained ablated model, and a trained intact model.} Shaded regions indicate variability across runs}{figure.caption.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces \textbf  {SSDC across depth for an untrained ablated model with random permutation, a trained ablated model, and a trained intact model.} Shaded regions indicate variability across runs (±1 standard deviation).}}{3}{figure.caption.2}\protected@file@percent }
+\newlabel{fig:SSDC42}{{2}{3}{\textbf {SSDC across depth for an untrained ablated model with random permutation, a trained ablated model, and a trained intact model.} Shaded regions indicate variability across runs (±1 standard deviation)}{figure.caption.2}{}}
 \newlabel{fig:cosine-ablated-untrained-RPI-0}{{3a}{3}{Untrained Ablated Model with Random Permutation Layer 0}{figure.caption.3}{}}
 \newlabel{sub@fig:cosine-ablated-untrained-RPI-0}{{a}{3}{Untrained Ablated Model with Random Permutation Layer 0}{figure.caption.3}{}}
 \newlabel{fig:cosine-ablated-untrained-RPI-2}{{3b}{3}{Untrained Ablated Model with Random Permutation Layer 2}{figure.caption.3}{}}
@@ -40,8 +40,8 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Early-layer representational diversity under intact and post-hoc ablated positional embeddings. Left: Effective Rank of the residual stream across layers. Right: Mean token-wise cosine similarity across layers. Results are shown for a fully intact ViT, the same trained model with positional embeddings removed post-hoc at inference time, and a completely untrained intact model. The intact model exhibits substantially higher Effective Rank at layer 0 followed by an early collapse, while the post-hoc ablated model starts from a low-rank regime and remains consistently lower. Mean token cosine similarity is higher for the post-hoc ablated model across all layers. }}{4}{figure.caption.4}\protected@file@percent }
 \newlabel{fig:4_3_main}{{4}{4}{Early-layer representational diversity under intact and post-hoc ablated positional embeddings. Left: Effective Rank of the residual stream across layers. Right: Mean token-wise cosine similarity across layers. Results are shown for a fully intact ViT, the same trained model with positional embeddings removed post-hoc at inference time, and a completely untrained intact model. The intact model exhibits substantially higher Effective Rank at layer 0 followed by an early collapse, while the post-hoc ablated model starts from a low-rank regime and remains consistently lower. Mean token cosine similarity is higher for the post-hoc ablated model across all layers}{figure.caption.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Positional Embeddings Inject Early-Layer Representational Diversity}{4}{subsection.4.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {SSDC across depth for intact models, and intact/ablated models that have had their tokens permuted randomly at inference.} The SSDC collapses to near-zero values upon permutation of the tokens of the ablated model, whereas the intact model's SSDC only takes a slight hit after permutation. }}{5}{figure.caption.5}\protected@file@percent }
-\newlabel{fig:SSDC_44}{{5}{5}{\textbf {SSDC across depth for intact models, and intact/ablated models that have had their tokens permuted randomly at inference.} The SSDC collapses to near-zero values upon permutation of the tokens of the ablated model, whereas the intact model's SSDC only takes a slight hit after permutation}{figure.caption.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {SSDC across depth for intact models, and intact/ablated models that have had their tokens permuted randomly at inference.} The SSDC collapses to near-zero values upon permutation of the tokens of the ablated model, whereas the intact model's SSDC only takes a slight hit after permutation. Shaded regions indicate variability across runs (±1 standard deviation). }}{5}{figure.caption.5}\protected@file@percent }
+\newlabel{fig:SSDC_44}{{5}{5}{\textbf {SSDC across depth for intact models, and intact/ablated models that have had their tokens permuted randomly at inference.} The SSDC collapses to near-zero values upon permutation of the tokens of the ablated model, whereas the intact model's SSDC only takes a slight hit after permutation. Shaded regions indicate variability across runs (±1 standard deviation)}{figure.caption.5}{}}
 \newlabel{fig:TCSM_int_44}{{6a}{5}{Token Cosine Similarity Matrix for an intact model (permuted) at layer 2}{figure.caption.6}{}}
 \newlabel{sub@fig:TCSM_int_44}{{a}{5}{Token Cosine Similarity Matrix for an intact model (permuted) at layer 2}{figure.caption.6}{}}
 \newlabel{fig:TCSM_abl_44}{{6b}{5}{Token Cosine Similarity Matrix for an ablated model (permuted) at layer 2}{figure.caption.6}{}}
@@ -53,12 +53,18 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces \textbf  {Fragility scores for intact, ablated, and permutation-trained intact models.} Black markers show the mean Fragility Scores with ±1 standard deviation. Intact models are substantially more robust, while permutation-trained intact models exhibit fragility comparable to ablated models despite retaining positional embeddings.}}{6}{figure.caption.7}\protected@file@percent }
 \newlabel{fig:FS45}{{7}{6}{\textbf {Fragility scores for intact, ablated, and permutation-trained intact models.} Black markers show the mean Fragility Scores with ±1 standard deviation. Intact models are substantially more robust, while permutation-trained intact models exhibit fragility comparable to ablated models despite retaining positional embeddings}{figure.caption.7}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Discussion}{6}{section.5}\protected@file@percent }
-\bibdata{references}
-\bibcite{chu2021}{{1}{2021}{{Chu et~al.}}{{Chu, Zhi, et~al.}}}
-\bibcite{originalvit2020}{{2}{2020}{{Dosovitskiy et~al.}}{{Dosovitskiy, Beyer, et~al.}}}
-\bibcite{islam2020}{{3}{2020}{{Islam et~al.}}{{Islam, Jia, et~al.}}}
-\bibcite{raghu2021}{{4}{2021}{{Raghu et~al.}}{{Raghu, Dosovitskiy, et~al.}}}
-\bibstyle{icml2026}
+\citation{dosovitskiy2021an}
+\citation{dosovitskiy2021an,chu2023conditional}
+\citation{amirhossein2023}
+\citation{Islam*2020How}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Related Work}{7}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{7}{section.7}\protected@file@percent }
-\gdef \@abspage@last{7}
+\bibdata{references}
+\bibcite{chu2023conditional}{{1}{2023}{{Chu et~al.}}{{Chu, Tian, Zhang, Wang, and Shen}}}
+\bibcite{dosovitskiy2021an}{{2}{2021}{{Dosovitskiy et~al.}}{{Dosovitskiy, Beyer, Kolesnikov, Weissenborn, Zhai, Unterthiner, Dehghani, Minderer, Heigold, Gelly, Uszkoreit, and Houlsby}}}
+\bibcite{Islam*2020How}{{3}{2020}{{Islam* et~al.}}{{Islam*, Jia*, and Bruce}}}
+\bibcite{amirhossein2023}{{4}{2023}{{Kazemnejad et~al.}}{{Kazemnejad, Padhi, et~al.}}}
+\bibcite{raghu2021do}{{5}{2021}{{Raghu et~al.}}{{Raghu, Unterthiner, Kornblith, Zhang, and Dosovitskiy}}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{8}{section.7}\protected@file@percent }
+\bibstyle{icml2026}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Testing \emph  {Appendix} wow}{10}{appendix.A}\protected@file@percent }
+\gdef \@abspage@last{10}

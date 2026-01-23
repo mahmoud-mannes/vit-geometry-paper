@@ -31,24 +31,25 @@
 \printAffiliationsAndNotice{}
 
 \begin{abstract}
-    Positional embeddings (PEs) in Vision Transformers (ViTs) are often viewed as simple spatial injectors that enable the encoding of absolute position. In this work, we show that even ViTs trained without PEs can recover non-trivial spatial structure and distinguish relative position using patch content alone. This raises a central question: if spatial structure can emerge without PEs, what functional role do PEs actually play? We find that PEs causally induce a dramatic increase in early-layer representational diversity, characterized by higher effective rank and reduced token homogenization in the residual stream. This effect arises prior to the encoder blocks and encourages representations that jointly leverage positional information and patch content. In contrast, models without PEs rely exclusively on content-based heuristics to infer spatial structure, resulting in representations that are significantly more fragile under distributional shifts.
+    Positional embeddings (PEs) in Vision Transformers (ViTs) are commonly viewed as simple spatial injectors that encode absolute position. In this work, we show that ViTs trained without PEs can nonetheless recover non-trivial spatial structure and distinguish relative position using patch content alone. This raises a central question: what functional role do PEs actually play?
 
+We demonstrate that PEs do more than add location cues; they causally induce a sharp increase in early-layer representational diversity, characterized by higher effective rank and reduced token homogenization in the residual stream, arising prior to the encoder blocks. Crucially, we show that this diversity alone does not explain robustness. Instead, PEs induce a qualitative shift in spatial organization, from content-relative to absolute-position-based reasoning, which we identify using a new metric, Spatial Similarity Distance Correlation (SSDC). Models lacking PEs rely exclusively on content-based heuristics, resulting in representations that are significantly more fragile under distributional shifts.
 \end{abstract}
 \section{Introduction}
-Vision Transformers (ViTs) have emerged as a powerful alternative to convolutional architectures for visual recognition by modeling images as sequences of patch tokens processed through self-attention mechanisms \cite{originalvit2020}. Unlike Convolutional Neural Networks (CNNs), ViTs lack strong built-in biases toward locality and translation equivariance. To compensate, most ViT architectures rely on Positional Embeddings (PEs) to inject explicit spatial information, allowing the model to distinguish patches originating from different locations in the image.
+Vision Transformers (ViTs) have emerged as a powerful alternative to convolutional architectures for visual recognition by modeling images as sequences of patch tokens processed through self-attention mechanisms \cite{dosovitskiy2021an}. Unlike Convolutional Neural Networks (CNNs), ViTs lack strong built-in biases toward locality and translation equivariance. To compensate, most ViT architectures rely on Positional Embeddings (PEs) to inject explicit spatial information, allowing the model to distinguish patches originating from different locations in the image.
 
-Existing studies suggest that ViTs can retain substantial performance even when positional information is removed or degraded \cite{chu2021}. This potentially indicates that transformers partially reconstruct spatial relationships from patch content alone, analogous to how CNNs learn implicit positional information from zero-padding \cite{islam2020}. These findings challenge the conventional view that PEs are strictly necessary and raise fundamental questions about what functional advantages they provide beyond basic spatial identifiability.
+Existing studies suggest that ViTs can retain substantial performance even when positional information is removed or degraded \cite{chu2023conditional}. This potentially indicates that transformers partially reconstruct spatial relationships from patch content alone, analogous to how CNNs learn implicit positional information from zero-padding \cite{Islam*2020How}. These findings challenge the conventional view that PEs are strictly necessary and raise fundamental questions about what functional advantages they provide beyond basic spatial identifiability.
 
 Prior work has largely explored positional embeddings through downstream performance or architectural variations. While informative, such approaches reveal little about how PEs shape the internal representations of the model. In particular, the effects of positional embeddings on the geometry, dimensionality, and stability of token representations across the transformer stack remain poorly understood.
 
-In this work, we adopt a mechanistic perspective to study the role of positional embeddings in ViTs. We analyze the evolution of token representations in the residual stream using tools from representational geometry \cite{raghu2021}, introducing the Spatial Similarity Distance Correlation (SSDC), a metric designed to quantify how spatial relationships are reflected in token similarity patterns. Using this framework, we systematically compare ViTs trained with and without positional embeddings, examining their impact on representational dimensionality, the spatial reasoning strategies employed by the model, and robustness to distributional shifts such as stylization and noise.
+In this work, we adopt a mechanistic perspective to study the role of positional embeddings in ViTs. We analyze the evolution of token representations in the residual stream using tools from representational geometry \cite{raghu2021do}, introducing the Spatial Similarity Distance Correlation (SSDC), a metric designed to quantify how spatial relationships are reflected in token similarity patterns. Using this framework, we systematically compare ViTs trained with and without positional embeddings, examining their impact on representational dimensionality, the spatial reasoning strategies employed by the model, and robustness to distributional shifts such as stylization and noise.
 Using this framework, we demonstrate that PEs perform three critical functions:
 \begin{itemize}
     \item \textbf{Promoting Representational Diversity:} PEs causally increase representational diversity (characterized by high dimensionality and lower token similarities),
     thereby enriching internal geometric representations.
-    \item \textbf{Shifting Spatial Organization Strategy:} We demonstrate that PEs push the model from a dominantly content-based strategy of forming
+    \item \textbf{Shifting Spatial Organization Strategy:} We demonstrate that PEs push ViTs from a dominantly content-based strategy of forming
     internal spatial structure to an absolute-position-based strategy, where the model can always reason "where" a patch is without a great dependence on what it "looks" like.
-    \item \textbf{Enhancing Robustness to Distributional Shifts:} We show that this absolute-position-based shift is precisely what allows ViTs to remain robust to distributional shifts, such as stylization, where local patch content becomes unreliable. 
+    \item \textbf{Enhancing Robustness to Distributional Shifts:} We show that this absolute-position-based shift is precisely what allows ViTs with PEs to remain robust to distributional shifts, such as stylization, where local patch content becomes unreliable. 
 \end{itemize}
 Together, our results provide a detailed and novel view of how explicit positional signals shape the internal organization of vision transformers, offering new insights into why positional embeddings play a critical role in stable and robust visual representation learning.
 
@@ -115,7 +116,7 @@ Together, our results provide a detailed and novel view of how explicit position
         \begin{figure}[t]
             \centering
             \includegraphics[width=0.8\linewidth]{../figures/SSDC_section_41}
-            \caption{\textbf{SSDC across depth for an untrained ablated model.} SSDC remains approximately constant across layers, indicating static spatial correlations induced by architectural and data priors rather than learning. Shaded regions indicate variability across runs.}
+            \caption{\textbf{SSDC across depth for an untrained ablated model.} SSDC remains approximately constant and at a relatively high value across layers, indicating static spatial correlations induced by architectural and data priors rather than learning. Shaded regions indicate variability across runs (±1 standard deviation).}
             \label{fig:SSDC}
         \end{figure}
 
@@ -132,15 +133,15 @@ Together, our results provide a detailed and novel view of how explicit position
         \end{minipage}
 
 
-        \textbf{Results:} The untrained ablated model with random permutation exhibits a consistently negative and depth-invariant SSDC value, reflecting the absence of meaningful spatial organization in token representations. In contrast, the trained ablated model shows a clear and consistent increase in SSDC from layer 0 to layer 2, after which SSDC remains roughly constant across deeper layers (Fig. 3). This depth-dependent increase indicates the emergence of non-trivial spatial structure during training, despite the absence of explicit positional embeddings.
+        \textbf{Results:} The untrained ablated model with random permutation consistently exhibits a near-zero and depth-invariant SSDC value, reflecting the absence of meaningful spatial organization in token representations. In contrast, the trained ablated model shows a clear and consistent increase in SSDC from layer 0 to layer 2, after which SSDC remains roughly constant across deeper layers (Fig. 3). This depth-dependent increase indicates the emergence of non-trivial spatial structure during training, despite the absence of explicit positional embeddings.
 
-        As expected, the trained intact model exhibits higher SSDC values across all layers, consistent with the direct contribution of explicit positional embeddings. Importantly, however, the presence of a strong SSDC increase in the trained ablated model demonstrates that spatial structure is not solely inherited from positional encodings, but can emerge implicitly through training dynamics and architectural biases.
+        As expected, the trained intact model exhibits higher SSDC values across all layers, consistent with the direct contribution of explicit positional embeddings. Importantly, however, the presence of a strong SSDC increase in the trained ablated model demonstrates that spatial structure is not solely inherited from positional embeddings, but can emerge implicitly through training dynamics and architectural biases.
 
         
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.85\linewidth]{../figures/SSDC_section_42}
-            \caption{\textbf{SSDC across depth for an untrained ablated model with random permutation, a trained ablated model, and a trained intact model.} Shaded regions indicate variability across runs.}
+            \caption{\textbf{SSDC across depth for an untrained ablated model with random permutation, a trained ablated model, and a trained intact model.} Shaded regions indicate variability across runs (±1 standard deviation).}
             \label{fig:SSDC42}
         \end{figure}
         
@@ -222,7 +223,7 @@ Together, our results provide a detailed and novel view of how explicit position
             \includegraphics[width=0.8\linewidth]{../figures/SSDC_section_44}
             \caption{\textbf{SSDC across depth for intact models, and intact/ablated models that have had their tokens permuted randomly at inference.} 
             The SSDC collapses to near-zero values upon permutation of the tokens of the ablated model, whereas the intact model's SSDC only takes a slight hit
-            after permutation.
+            after permutation. Shaded regions indicate variability across runs (±1 standard deviation).
             }
             \label{fig:SSDC_44}
         \end{figure}
@@ -295,13 +296,40 @@ Taken together, these findings suggest that positional embeddings act as a struc
 
         Second, our robustness evaluation centers on a particular family of distributional shifts. Although these shifts are well-motivated and commonly used, they do not exhaust the space of possible perturbations. It is possible that patch-relative strategies may confer advantages under other forms of shift not considered here.
 
-        Finally, while our representational probes provide strong evidence for distinct spatial organization modes, they remain correlational. Establishing a causal link between specific representational geometries and downstream robustness would benefit from targeted interventions at inference time, such as selectively disrupting absolute or relative spatial signals within trained models.
+        Finally, our study is limited in its experimental scope: all analyses were conducted using relatively small Vision Transformers (~1.2M parameters) trained on CIFAR-10. While this controlled setting enabled detailed mechanistic analysis, it raises natural questions about the generality of our findings. The magnitude of the effects we observe, such as the scale of the early-layer effectve rank spike or the precise SSDC values may vary with model scale and dataset complexity. However, we hypothesize that the core directional conclusions are rooted in a causal, architectural mechanism. But we explicitly encourage future works to validate and quantify these effects in larger-scale, state-of-the-art ViT models.
 \section{Related Work}
-        Placeholder text
+        \textbf{Positional Information in Vision Transformers}
+
+        The standard Vision Transformer (ViT) breaks the permutation invariance of self-attention by adding learnable absolute positional embeddings (PEs) to patch tokens \cite{dosovitskiy2021an}, establishing the dominant paradigm for spatial encoding in vision transformers. However, it has been found that ViTs retain substantial performance even when PEs are degraded or removed \cite{dosovitskiy2021an, chu2023conditional}. , suggesting ViTs may be able to partially recover spatial structure and implicit positional information without PEs. In fact, similar observations have been reported outside the vision domain. For example, recent work on decoder-only Transformers shows that models trained without PEs can implicitly recover positional information and that they tend to use relative positions in practice \cite{amirhossein2023}. While this analysis is specific to generative language models, it reinforces the broader notion that explicit PEs are not strictly required for spatial structure to emerge. This parallels earlier findings in CNNs, where it was demonstrated that convolutional networks learn substantial positional information implicitly from architectural features like zero-padding \cite{Islam*2020How}. These observations create the fundamental puzzle our work addresses: if spatial structure can emerge without explicit guidance, what functional role do PEs actually play? Prior attempts to answer this have primarily focused on architectural variants [5, 6] or downstream performance comparisons [2, 3], leaving the mechanistic impact of PEs on internal representations largely unexplored.
+
+        \textbf{Representational Analysis of Transformers}
+
+        A separate line of work analyzes the geometry and dynamics of transformer representations using tools from representational analysis. Maithra Raghu et al. provided foundational comparisons between ViT and CNN representations in "Do vision transformers see like convolutional neural networks?" (NeurIPS 2021), revealing distinct spatial organization patterns [7]. Subsequent work has examined how attention mechanisms transform representations [8], the evolution of representational rank during training [9], and the tendency for token representations to homogenize in deep layers—a phenomenon Srinadh Bhojanapalli et al. documented in "Understanding robustness of transformers for image classification" (CVPR 2021) [10]. The residual stream framework introduced by Nelson Elhage et al. in "A mathematical framework for transformer circuits" (2021) provides the conceptual foundation for our analysis of token representations across layers [11]. However, these representational analyses have not specifically targeted the causal effect of positional embeddings on this geometry, nor have they connected these internal dynamics to external robustness properties.
+
+        \textbf{Robustness of Visual Models}
+
+        Vision Transformers exhibit distinct robustness profiles compared to convolutional networks. Bhojanapalli et al. systematically compared ViT and CNN robustness, finding transformers exhibit greater resilience to spatial perturbations but increased sensitivity to certain texture changes [10]. Sayak Paul and Pin-Yu Chen further established in "Vision transformers are robust learners" (AAAI 2022) that ViTs demonstrate favorable out-of-distribution generalization properties [12]. These observations connect to the broader literature on shape versus texture bias in visual recognition, where Robert Geirhos et al. showed in "ImageNet-trained CNNs are biased towards texture" (ICLR 2019) that models with stronger shape bias tend to exhibit better generalization [13]. While robustness differences between architectural families have been documented, the link between a model's specific spatial reasoning strategy—such as relying on absolute position versus inferring relations from content—and its robustness to distribution shifts has been suggested but not mechanistically established.
+
+        \textbf{Our Contribution}
+
+        We bridge these disconnected research threads to solve the positional embedding puzzle. Unlike performance-focused ablation studies [2, 3], we perform a causal, representational analysis to show how PEs work internally. We demonstrate they (1) induce early-layer representational diversity through a high-rank injection at layer 0, (2) shift the model's spatial organization strategy from content-relative to position-absolute reasoning, and (3) that this strategic shift—rather than representational diversity alone—confers robustness to texture-based distribution shifts. We introduce the Spatial Similarity Distance Correlation (SSDC) metric and employ controlled interventions like Random Permutation Training to isolate these mechanisms, providing the first unified account of why PEs remain crucial beyond their basic function of breaking permutation invariance.
 \section{Conclusion}
        In this work, we investigated how positional embeddings shape spatial organization and representation geometry in Vision Transformers. We show that even in the absence of positional embeddings, ViTs retain non-trivial spatial structure through a patch-relative, content-based mode of organization. However, this structure is fragile and corresponds to limited representational consolidation. When positional embeddings are present, they introduce substantial early-layer representational diversity and induce a qualitatively different pattern of representation dynamics, characterized by coordinated rank collapse and increased token similarity across depth.
 
 These findings indicate that positional embeddings act as a structural bias that alters both the geometry of the latent space and the dominant strategy by which spatial information is encoded. By pushing ViTs toward an absolute-position mode of spatial organization, positional embeddings promote more stable and robust representations under distributional shift, while still allowing patch content to play a secondary role. More broadly, our results suggest that spatial reasoning in ViTs emerges from the interaction between inductive bias, training dynamics, and representational geometry, rather than from positional encoding alone. Understanding and controlling these interactions may be critical for designing transformer-based vision models that generalize reliably beyond their training distributions.
 \bibliography{references}
 \bibliographystyle{icml2026}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\appendix
+\onecolumn
+
+\section{Testing \emph{Appendix} wow}
+
 \end{document}
