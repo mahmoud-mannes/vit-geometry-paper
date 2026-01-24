@@ -1,9 +1,17 @@
-\begin{thebibliography}{5}
+\begin{thebibliography}{13}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bhojanapalli et~al.(2021)Bhojanapalli, Chakrabarti, Glasner, Li,
+  Unterthiner, and Veit]{Bhojanapalli2021robust}
+Bhojanapalli, S., Chakrabarti, A., Glasner, D., Li, D., Unterthiner, T., and
+  Veit, A.
+\newblock Understanding robustness of transformers for image classification.
+\newblock pp.\  10211--10221, 10 2021.
+\newblock \doi{10.1109/ICCV48922.2021.01007}.
 
 \bibitem[Chu et~al.(2023)Chu, Tian, Zhang, Wang, and Shen]{chu2023conditional}
 Chu, X., Tian, Z., Zhang, B., Wang, X., and Shen, C.
@@ -11,6 +19,16 @@ Chu, X., Tian, Z., Zhang, B., Wang, X., and Shen, C.
 \newblock In \emph{The Eleventh International Conference on Learning
   Representations}, 2023.
 \newblock URL \url{https://openreview.net/forum?id=3KWnuT-R1bh}.
+
+\bibitem[Dong et~al.(2021)Dong, Cordonnier, and Loukas]{pmlr-v139-dong21a}
+Dong, Y., Cordonnier, J.-B., and Loukas, A.
+\newblock Attention is not all you need: pure attention loses rank doubly
+  exponentially with depth.
+\newblock In Meila, M. and Zhang, T. (eds.), \emph{Proceedings of the 38th
+  International Conference on Machine Learning}, volume 139 of
+  \emph{Proceedings of Machine Learning Research}, pp.\  2793--2803. PMLR,
+  18--24 Jul 2021.
+\newblock URL \url{https://proceedings.mlr.press/v139/dong21a.html}.
 
 \bibitem[Dosovitskiy et~al.(2021)Dosovitskiy, Beyer, Kolesnikov, Weissenborn,
   Zhai, Unterthiner, Dehghani, Minderer, Heigold, Gelly, Uszkoreit, and
@@ -23,6 +41,39 @@ Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X.,
 \newblock In \emph{International Conference on Learning Representations}, 2021.
 \newblock URL \url{https://openreview.net/forum?id=YicbFdNTTy}.
 
+\bibitem[d’Ascoli et~al.(2022)d’Ascoli, Touvron, Leavitt, Morcos, Biroli,
+  and Sagun]{d’Ascoli_2022}
+d’Ascoli, S., Touvron, H., Leavitt, M.~L., Morcos, A.~S., Biroli, G., and
+  Sagun, L.
+\newblock Convit: improving vision transformers with soft convolutional
+  inductive biases*.
+\newblock \emph{Journal of Statistical Mechanics: Theory and Experiment},
+  2022\penalty0 (11):\penalty0 114005, nov 2022.
+\newblock \doi{10.1088/1742-5468/ac9830}.
+\newblock URL \url{https://doi.org/10.1088/1742-5468/ac9830}.
+
+\bibitem[Elhage et~al.(2021)Elhage, Nanda, Olsson, Henighan, Joseph, Mann,
+  Askell, Bai, Chen, Conerly, DasSarma, Drain, Ganguli, Hatfield-Dodds,
+  Hernandez, Jones, Kernion, Lovitt, Ndousse, Amodei, Brown, Clark, Kaplan,
+  McCandlish, and Olah]{elhage2021mathematical}
+Elhage, N., Nanda, N., Olsson, C., Henighan, T., Joseph, N., Mann, B., Askell,
+  A., Bai, Y., Chen, A., Conerly, T., DasSarma, N., Drain, D., Ganguli, D.,
+  Hatfield-Dodds, Z., Hernandez, D., Jones, A., Kernion, J., Lovitt, L.,
+  Ndousse, K., Amodei, D., Brown, T., Clark, J., Kaplan, J., McCandlish, S.,
+  and Olah, C.
+\newblock A mathematical framework for transformer circuits.
+\newblock \emph{Transformer Circuits Thread}, 2021.
+\newblock https://transformer-circuits.pub/2021/framework/index.html.
+
+\bibitem[Geirhos et~al.(2019)Geirhos, Rubisch, Michaelis, Bethge, Wichmann, and
+  Brendel]{geirhos2018imagenettrained}
+Geirhos, R., Rubisch, P., Michaelis, C., Bethge, M., Wichmann, F.~A., and
+  Brendel, W.
+\newblock Imagenet-trained {CNN}s are biased towards texture; increasing shape
+  bias improves accuracy and robustness.
+\newblock In \emph{International Conference on Learning Representations}, 2019.
+\newblock URL \url{https://openreview.net/forum?id=Bygh9j09KX}.
+
 \bibitem[Islam* et~al.(2020)Islam*, Jia*, and Bruce]{Islam*2020How}
 Islam*, M.~A., Jia*, S., and Bruce, N. D.~B.
 \newblock How much position information do convolutional neural networks
@@ -30,11 +81,45 @@ Islam*, M.~A., Jia*, S., and Bruce, N. D.~B.
 \newblock In \emph{International Conference on Learning Representations}, 2020.
 \newblock URL \url{https://openreview.net/forum?id=rJeB36NKvB}.
 
-\bibitem[Kazemnejad et~al.(2023)Kazemnejad, Padhi, et~al.]{amirhossein2023}
-Kazemnejad, Padhi, et~al.
+\bibitem[Kazemnejad et~al.(2023)Kazemnejad, Padhi, Natesan, Das, and
+  Reddy]{kazemnejad2023the}
+Kazemnejad, A., Padhi, I., Natesan, K., Das, P., and Reddy, S.
 \newblock The impact of positional encoding on length generalization in
   transformers.
-\newblock 2023.
+\newblock In \emph{Thirty-seventh Conference on Neural Information Processing
+  Systems}, 2023.
+\newblock URL \url{https://openreview.net/forum?id=Drrl2gcjzl}.
+
+\bibitem[Kobayashi et~al.(2021)Kobayashi, Kuribayashi, Yokoi, and
+  Inui]{kobayashi-etal-2021-incorporating}
+Kobayashi, G., Kuribayashi, T., Yokoi, S., and Inui, K.
+\newblock {I}ncorporating {R}esidual and {N}ormalization {L}ayers into
+  {A}nalysis of {M}asked {L}anguage {M}odels.
+\newblock In Moens, M.-F., Huang, X., Specia, L., and Yih, S. W.-t. (eds.),
+  \emph{Proceedings of the 2021 Conference on Empirical Methods in Natural
+  Language Processing}, pp.\  4547--4568. Association for Computational
+  Linguistics, November 2021.
+\newblock \doi{10.18653/v1/2021.emnlp-main.373}.
+\newblock URL \url{https://aclanthology.org/2021.emnlp-main.373/}.
+
+\bibitem[Liu et~al.(2021)Liu, Lin, Cao, Hu, Wei, Zhang, Lin, and
+  Guo]{Liu2021swin}
+Liu, Z., Lin, Y., Cao, Y., Hu, H., Wei, Y., Zhang, Z., Lin, S., and Guo, B.
+\newblock { Swin Transformer: Hierarchical Vision Transformer using Shifted
+  Windows }.
+\newblock In \emph{2021 IEEE/CVF International Conference on Computer Vision
+  (ICCV)}, pp.\  9992--10002. IEEE Computer Society, October 2021.
+\newblock \doi{10.1109/ICCV48922.2021.00986}.
+\newblock URL
+  \url{https://doi.ieeecomputersociety.org/10.1109/ICCV48922.2021.00986}.
+
+\bibitem[Paul \& Chen(2022)Paul and Chen]{Paul_Chen_2022}
+Paul, S. and Chen, P.-Y.
+\newblock Vision transformers are robust learners.
+\newblock \emph{Proceedings of the AAAI Conference on Artificial Intelligence},
+  36\penalty0 (2):\penalty0 2071--2081, Jun. 2022.
+\newblock \doi{10.1609/aaai.v36i2.20103}.
+\newblock URL \url{https://ojs.aaai.org/index.php/AAAI/article/view/20103}.
 
 \bibitem[Raghu et~al.(2021)Raghu, Unterthiner, Kornblith, Zhang, and
   Dosovitskiy]{raghu2021do}
