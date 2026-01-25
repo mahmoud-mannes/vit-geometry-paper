@@ -328,6 +328,10 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT ../figures/Appendix_SSDC_C1.pdf
+INPUT ../figures/Appendix_SSDC_C1.pdf
+INPUT ../figures/Appendix_SSDC_C1.pdf
+INPUT ../figures/Appendix_SSDC_C1.pdf
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out
