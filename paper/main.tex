@@ -3,7 +3,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{booktabs}
-\usepackage[preprint]{icml2026}
+\usepackage{icml2026}
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -267,8 +267,15 @@ Together, our results provide a detailed and novel view of how explicit position
         \begin{figure}[t]
             \centering
             \includegraphics[width=0.85\linewidth]{../figures/robustness_pointplot}
-            \caption{\textbf{Fragility scores for intact, ablated, and permutation-trained intact models.} Black markers show the mean Fragility Scores with ±1 standard deviation. Intact models are substantially more robust, while permutation-trained intact models exhibit fragility comparable to ablated models despite retaining positional embeddings.}
+            \caption{\textbf{Fragility scores for intact, ablated, and permutation-trained intact models under the stylized dataset.} Black markers show the mean Fragility Scores with ±1 standard deviation. Intact models are substantially more robust, while permutation-trained intact models exhibit fragility comparable to ablated models despite retaining positional embeddings.}
             \label{fig:FS45}
+        \end{figure}
+
+        \begin{figure}[t]
+            \centering
+            \includegraphics[width=0.85\linewidth]{../figures/robustness_pointplot_GB}
+            \caption{\textbf{Fragility scores for intact, ablated, and permutation-trained intact models exposed to Gaussian Blur.} Black markers show the mean Fragility Scores with ±1 standard deviation. Intact models are substantially more robust, while permutation-trained intact models exhibit fragility comparable to ablated models despite retaining positional embeddings.}
+            \label{fig:FS45_GB}
         \end{figure}
 
         \textbf{Results:} We consistently find that the models that rely dominantly on patch content for spatial structure (ablated and RPT–RPI Intact models) are significantly more fragile to distributional shifts than the models that rely on an Absolute Position mode of spatial organization (Fig. 7). In particular, the RPT–RPI Intact models exhibit Fragility Scores that are substantially higher than standard intact models and nearly comparable to fully ablated models, despite retaining representational diversity. This indicates that robustness is not merely a consequence of diverse token representations, but critically depends on the presence of absolute-position-based strategies during training and inference.
@@ -328,6 +335,135 @@ These findings indicate that positional embeddings act as a structural bias that
 \appendix
 \onecolumn
 
-\section{Testing \emph{Appendix} wow}
+\section{Experimental Setup and Hyperparameters}
+
+    \begin{table}[h]
+    \centering
+    \caption{Model architecture and training hyperparameters used in all experiments.}
+    \label{tab:hyperparams}
+    \begin{tabular}{l l}
+    \toprule
+    \textbf{Parameter} & \textbf{Value} \\
+    \midrule
+    \multicolumn{2}{c}{\textit{Input \& Tokenization}} \\
+    \midrule
+    Input resolution & $32 \times 32$ \\
+    Patch size & $4 \times 4$ \\
+    Number of patches & 64 \\
+    Input channels ($C$) & 3 \\
+    \midrule
+    \multicolumn{2}{c}{\textit{ViT Architecture}} \\
+    \midrule
+    Embedding dimension ($D$) & 320 \\
+    Number of encoder layers & 10 \\
+    Number of attention heads & 8 \\
+    Key/query dimension ($d_k$) & 40 \\
+    Dropout (embedding) & 0.1 \\
+    Dropout (attention) & 0.1 \\
+    Dropout (MLP) & 0.1 \\
+    Stochastic depth rate & 0.1 \\
+    \midrule
+    \multicolumn{2}{c}{\textit{Training Hyperparameters}} \\
+    \midrule
+    Batch size & 128 \\
+    Optimizer & Adam \\
+    Learning rate & $1 \times 10^{-3}$ \\
+    Weight decay & $5 \times 10^{-4}$ \\
+    Adam $\beta_1$ & 0.9 \\
+    Adam $\beta_2$ & 0.999 \\
+    Training epochs & 50 \\
+    \bottomrule
+    \end{tabular}
+    \end{table}
+
+\section{Metric Definitions and Implementation Details}
+    \subsection{Spatial Similarity Distance Correlation (SSDC)}
+        Let $T$ denote the number of patch tokens (excluding the CLS token), arranged on a
+        $\sqrt{T} \times \sqrt{T}$ image grid. For a given layer, let
+        $S \in \mathbb{R}^{T \times T}$ be the pairwise cosine similarity matrix between token
+        representations. We associate each token $i$ with spatial coordinates
+        $\mathbf{p}_i \in \mathbb{Z}^2$ corresponding to its location on the image grid, and define
+        the spatial distance matrix $D \in \mathbb{R}^{T \times T}$ by
+        \[
+        D_{ij} = \lVert \mathbf{p}_i - \mathbf{p}_j \rVert_1 ,
+        \]
+        where $\lVert \cdot \rVert_1$ denotes Manhattan distance.
+
+        SSDC is defined as the Spearman rank correlation between representational similarity and
+        negative spatial distance over all unordered token pairs:
+        \[
+        \mathrm{SSDC}
+        = \rho_{\mathrm{Spearman}}\!\left(
+        \{ S_{ij} \}_{i < j},
+        \{ -D_{ij} \}_{i < j}
+        \right).
+        \]
+        Higher SSDC values indicate that spatially proximal tokens tend to have more similar
+        representations, reflecting stronger relative positional structure in the residual stream.
+        We use Spearman correlation to remain agnostic to the exact functional relationship between
+        spatial distance and representational similarity.
+
+    \textbf{Effective Rank}
+
+        Given a matrix $X \in \mathbb{R}^{n \times d}$ (e.g., a collection of token representations),
+        let $\sigma_1, \dots, \sigma_r$ denote its singular values, where $r = \mathrm{rank}(X)$.
+        We define the effective rank of $X$ using the participation ratio as
+        \[
+        \mathrm{erank}(X)
+        = \frac{\left( \sum_{i=1}^{r} \sigma_i^2 \right)^2}{\sum_{i=1}^{r} \sigma_i^4}.
+        \]
+        This quantity measures how evenly variance is distributed across singular directions:
+        it attains its maximum value of $r$ when all singular values are equal, and decreases as
+        the representation collapses onto fewer dominant directions.
+
+    \subsection{Mean Cosine Similarity}
+        Let $R \in \mathbb{R}^{B \times T \times D}$ denote the token representations at a given
+        layer, excluding the \texttt{[CLS]} token, where $B$ is the batch size, $T$ the number of
+        tokens, and $D$ the hidden dimension.
+        For each sample in the batch, we compute the pairwise cosine similarity between all token
+        representations to obtain a token cosine similarity matrix
+        $S \in \mathbb{R}^{T \times T}$, where
+        \[
+        S_{ij} = \frac{r_i^\top r_j}{\|r_i\|_2 \, \|r_j\|_2}.
+        \]
+        The similarity matrices are symmetric by construction and have unit diagonal.
+        We average $S$ across the batch dimension to obtain a layer-wise summary of inter-token
+        relationships.
+        Mean Cosine Similarity (MCS) is defined as the mean of all entries of this averaged
+        similarity matrix.
+        Because the diagonal entries are identically equal to 1 across all models and conditions,
+        including them does not affect comparative analysis.
+        Higher MCS values indicate greater representational homogeneity among tokens.
+    \subsection{Fragility Score}
+        To quantify sensitivity to distributional shifts, we compute the Fragility Score (FS),
+        defined as the relative drop in top-1 accuracy under a given shift:
+        \[
+        \mathrm{FS} = 1 - \frac{A_{\text{shift}}}{A_{\text{normal}}},
+        \]
+        where $A_{\text{normal}}$ and $A_{\text{shift}}$ denote top-1 accuracy on the unshifted
+        and shifted datasets, respectively.
+        Higher values correspond to greater performance degradation.
+        Unless otherwise stated, accuracies are averaged across random seeds prior to computing
+        FS.
+    \subsection{Metric Summary}
+        For clarity, we briefly summarize the metrics used throughout this work and the phenomena
+        they are intended to capture.
+        \begin{itemize}
+            \item \textbf{Mean Cosine Similarity (MCS)} measures average pairwise similarity between
+            token representations and serves as a proxy for inter-token homogeneity or redundancy.
+            \item \textbf{Effective Rank} quantifies representational diversity by measuring how
+            evenly variance is distributed across singular directions of the token representation
+            matrix.
+            \item \textbf{Spatial Similarity Distance Correlation (SSDC)} captures the degree to which
+            representational similarity aligns with spatial proximity, serving as a proxy for
+            relative positional structure in the residual stream.
+            \item \textbf{Fragility Score (FS)} measures sensitivity to distributional shifts by
+            quantifying relative performance degradation under dataset perturbations.
+        \end{itemize}
+        Together, these metrics allow us to disentangle representational diversity, spatial
+        organization strategy, and robustness, and to analyze how positional embeddings causally
+        affect each of these factors.
+
+
 
 \end{document}
