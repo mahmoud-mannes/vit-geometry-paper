@@ -140,7 +140,7 @@ Together, our results provide a detailed and novel view of how explicit position
             \centering
             \includegraphics[width=0.85\linewidth]{../figures/SSDC_section_42}
             \caption{\textbf{SSDC across depth for an untrained ablated model with random permutation, a trained ablated model, and a trained intact model.} Shaded regions indicate variability across runs (±1 standard deviation).}
-            \label{fig:SSDC42}
+            \label{fig:SSDC_42}
         \end{figure}
         
         \begin{figure}[H]
@@ -466,19 +466,113 @@ These findings indicate that positional embeddings act as a structural bias that
 
 \clearpage
 
-\section{Additional Representational Analyses}
-    \subsection{Spatial Structure in Untrained Intact Models}
-        \begin{figure}[t]
+\section{Additional Analyses}
+    \subsection{Spatial Structure in Untrained Ablated Models}
+        \begin{figure}[H]
             \centering
-            \includegraphics[width=0.5\linewidth]{../figures/Appendix_SSDC_C1}
-            \caption{random}
-            \label{random}
+            \includegraphics[width=0.55\linewidth]{../figures/layer_0_untrained_NPI.png}
+            \vspace{-0.3em}
+            \includegraphics[width=0.55\linewidth]{../figures/layer_2_untrained_NPI.png}
+            \caption{Batch-averaged token cosine similarity heatmaps for an untrained ablated (NoPE) model
+            at layers 0 (top) and 2 (bottom). A diagonal spatial structure is present at initialization,
+            but remains unchanged across layers, indicating static, architecture-induced spatial organization
+            rather than learned positional structure.}
+            \label{fig:APP_C1}
         \end{figure}
-    ALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSA
-    ALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSA
 
-    ALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSA
-    ALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSA
+        To complement the quantitative SSDC results reported in the main text, we visualize token
+        cosine similarity heatmaps for untrained ablated (NoPE) models.
+        Figure~\ref{fig:APP_C1} shows batch-averaged token cosine similarity matrices
+        at layers 0 and 2, excluding the \texttt{[CLS]} token.
 
-    ALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSAALALDLKSAJFLJSA
+        Despite the absence of training, a clear diagonal structure is already present at initialization,
+        indicating that a weak form of spatial organization is implicitly induced by the model architecture
+        and the image patchification process.
+        However, this structure does not sharpen, diffuse, or qualitatively change across early layers,
+        remaining essentially invariant through depth.
+        This behavior contrasts with trained models, where spatial structure evolves with depth and
+        reflects learned spatial reasoning strategies.
+
+        These visualizations support the interpretation that spatial structure observed in untrained
+        ablated models is not emergent, but rather a static byproduct of architectural and data-induced
+        biases.
+
+    \clearpage
+    \subsection{Absence of Spatial Structure in Untrained Intact Models}
+        \begin{figure*}[t]
+            \centering
+            \begin{subfigure}[b]{0.48\linewidth}
+                \includegraphics[width=\linewidth]{../figures/Appendix_SSDC_C1}
+                \caption{\textbf{SSDC Across Depth for an Untrained Intact Model.}SSDC remains consistently low and invariant across depth (n = 3 seeds), indicating an absence of coherent spatial structure despite the presence of positional embeddings.}
+                \label{fig:APP_C2_SSDC}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[b]{0.48\linewidth}
+                \includegraphics[width=\linewidth]{../figures/layer_2_untrained_intact.png}
+                \caption{\textbf{Representative Token Cosine Similarity Matrix from an Untrained Intact Model.} The weak diagonal pattern and low overall inter-token similarity reflect disrupted spatial correlations induced by untrained positional embeddings.}
+                \label{fig:APP_C2_TCSM}
+            \end{subfigure}
+            \caption(\textbf{Spatial Structure in Untrained Intact Models.} Untrained positional embeddings suppress spatial structure by injecting unstructured positional perturbations, resulting in low SSDC and weak token-to-token correlations across depth.)
+            \label{fig:APP_C2_main}
+        \end{figure*}
+        We observe that SSDC in the untrained intact model remains consistently low and invariant across depth. This behavior contrasts sharply with untrained ablated models and indicates an absence of coherent spatial structure. We attribute this effect to the presence of untrained positional embeddings, which introduce unstructured positional perturbations that disrupt the weak spatial correlations otherwise present in ViTs without positional encodings (Sections 4.1 and C.1).
+
+        This interpretation is supported by the representative Token Cosine Similarity Matrix in Figure~\ref{fig:APP_C2_main}, which exhibits a substantially weaker diagonal structure and lower overall inter-token similarity compared to the untrained ablated model (Figure~\ref{fig:APP_C1}). Together, these observations indicate that the representational diversity observed in untrained intact models does not reflect meaningful spatial organization, but rather the injection of positional noise.
+
+        In contrast, the trained intact model exhibits markedly different behavior: SSDC begins at a higher value and increases sharply from layer 0 to layer 2 (Figure~\ref{fig:SSDC_42}). When considered alongside the depth-wise evolution of representational diversity, this divergence highlights a key distinction between noise-induced diversity in untrained intact models and the emergence of functionally meaningful spatial structure during early stages of training.
+    
+    \subsection{Effects of Post-hoc Ablation of Positional Embeddings}
+        \begin{figure}[H]
+            \centering
+            \begin{subfigure}[b]{0.48\linewidth}
+                \includegraphics[width=\linewidth]{../figures/APP_MCS_C3}
+                \caption{\textbf{Mean Cosine Similarity Across Depth With and Without Positional Embeddings} Removing positional embeddings from a trained Intact model increases similarity among token representations in early layers, reflecting a collapse of representational diversity. Intact models maintain lower early-layer similarity, highlighting the role of positional embeddings in structuring diverse representations.}
+                \label{fig:APP_C3_MCS}
+            \end{subfigure}ERM
+            \hfill
+            \begin{subfigure}[b]{0.48\linewidth}
+                \includegraphics[width=\linewidth]{../figures/APP_ERM_C3}
+                \caption{\textbf{Effective Rank Across Depth With and Without Positional Embeddings.} Post-hoc ablation of positional embeddings substantially reduces effective rank, particularly in early layers, confirming that positional information supports the spread and dimensionality of learned representations. Intact models maintain higher rank across layers.}
+                \label{fig:APP_C3_ERM}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[b]{0.48\linewidth}
+                \includegraphics[width=\linewidth]{../figures/APP_SSDC_C3}
+                \caption{\textbf{SSDC Across Depth With and Without Positional Embeddings} Removing positional embeddings lowers initial SSDC and delays the characteristic peak from layer 2 to around layer 4, which is also weaker in magnitude. This indicates that positional embeddings accelerate the formation of spatial structure in early layers and contribute to its overall magnitude.}
+                \label{fig:APP_C3_SSDC}
+            \end{subfigure}
+
+            \caption{\textbf{Effects of Post-hoc Positional Embedding Removal.} Removing positional embeddings from a trained Intact model causes both representational diversity and SSDC to collapse.}
+            \label{fig:APP_C3_main}
+        \end{figure}
+
+        Upon post-hoc removal of positional embeddings from an Intact model, representational diversity collapses immediately, as expected. More interestingly, SSDC also decreases: the initial value at layer 0 is lower, and the characteristic peak observed in intact models shifts to later layers (around layer 4) and is weaker in magnitude (Figure~\ref{fig:APP_C3_main}). This indicates that positional embeddings not only contribute to the overall level of spatial structure but also accelerate its early-layer development. These results confirm that the learned representations in Intact models rely on positional information to establish and maintain both representational diversity and spatial organization, rather than solely on patch-content correlations.
+    \subsection{Model Performance Across Distributional Shifts}
+
+    We evaluate the absolute performance of our models under three conditions: the original (in-distribution) data, AdaIN style transfer, and Gaussian blur. Figures~\ref{fig:acc_normal}, \ref{fig:acc_adain}, and \ref{fig:acc_blur} summarize the results. Across all settings, the Intact model consistently outperforms both the Ablated and RPT-RPI Intact models, which exhibit similar and substantially lower accuracies. This pattern highlights that removing or perturbing positional embeddings diminishes functional performance, while the Intact model retains robustness even under distributional shifts.
+
+    \begin{figure}[H]
+        \centering
+        \begin{subfigure}[b]{0.32\linewidth}
+            \includegraphics[width=\linewidth]{../figures/Appendix_normal_acc_C4}
+            \caption{Original Data}
+            \label{fig:acc_normal}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.32\linewidth}
+            \includegraphics[width=\linewidth]{../figures/Appendix_stylized_acc_C4}
+            \caption{AdaIN Style Transfer}
+            \label{fig:acc_adain}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.32\linewidth}
+            \includegraphics[width=\linewidth]{../figures/Appendix_gaussian_acc_C4}
+            \caption{Gaussian Blur}
+            \label{fig:acc_blur}
+        \end{subfigure}
+        \caption{\textbf{Absolute Model Accuracies Across Distributional Shifts.} Intact models maintain substantially higher performance across all shifts, whereas Ablated and RPT-RPI Intact models exhibit similar, lower accuracies. This trend underscores the functional importance of intact positional embeddings.}
+        \label{fig:accuracy_all}
+    \end{figure}
+
+\section{Sanity Checks}
 \end{document}
