@@ -183,13 +183,13 @@ Together, our results provide a detailed and novel view of how explicit position
             \centering
             \begin{subfigure}[b]{0.44\textwidth}
                 \includegraphics[width=\textwidth]{../figures/ERM_section_43}
-                \caption{Effective Rank across depth (Intact vs Post-hoc Ablated vs Untrained Intact).}
+                \caption{Effective Rank across depth (Intact vs Ablated vs Untrained Intact).}
                 \label{fig:er_values}
             \end{subfigure}
             \hfill
             \begin{subfigure}[b]{0.44\textwidth}
                 \includegraphics[width=\textwidth]{../figures/MCS_section_43}
-                \caption{Mean Token Cosine Similarity across depth (Intact vs Post-hoc Ablated vs Untrained Intact).}
+                \caption{Mean Token Cosine Similarity across depth (Intact vs Ablated vs Untrained Intact).}
                 \label{fig:cos_sim_values}
             \end{subfigure}
 
@@ -199,22 +199,21 @@ Together, our results provide a detailed and novel view of how explicit position
             \label{fig:4_3_main}
         \end{figure*}
     \subsection{Positional Embeddings Inject Early-Layer Representational Diversity}
+        \textbf{Experimental setup:} We evaluate representational diversity in Vision Transformers using two complementary metrics: the Effective Rank of the residual stream and the mean token-wise cosine similarity. Experiments are conducted on CIFAR-10 using three model configurations: (1) a trained ViT with intact positional embeddings (PEs), (2) the same trained model with PEs removed post-hoc at inference time, and (3) an untrained model with randomly initialized, untrained PEs.
 
-        \textbf{Experimental setup:} We evaluate representational diversity in Vision Transformers using two complementary metrics: the Effective Rank of the residual stream and the mean token-wise cosine similarity. Experiments are conducted on CIFAR-10 using two models: (1) a standard ViT with intact positional embeddings, (2) the same trained model with positional embeddings removed post-hoc at inference time, and (3) an untrained model with untrained PEs initialized at random.
+Effective Rank is computed at layers 0, 2, 4, and 9 as a proxy for the dimensional diversity of token representations. In parallel, we compute the token-to-token cosine similarity matrix at the same layers and report its mean value, which captures the degree of representational collapse across spatial tokens.
 
-        Effective Rank is computed at layers 0, 2, 4, and 9, following standard practice as a proxy for the dimensional diversity of representations. In parallel, we compute the token-to-token cosine similarity matrix at the same layers and report its mean value as a measure of representational collapse across spatial tokens.
+Critically, the inclusion of the untrained intact model allows us to disentangle functionally meaningful representational diversity from diversity arising due to random signal injection. Since untrained PEs are uncorrelated with image content, any diversity they induce reflects noise rather than learned structure.
 
-        Crucially, because positional embeddings are removed only at inference time, any observed differences reflect the functional role of positional information during forward computation rather than differences in learned parameters.
-        Additionally, by observing the behavior of the untrained intact model, we can distinguish functionally meaningful representational diversity from representational diversity that is a result of random noise injections.
+\textbf{Results:} Figure~4 reveals a pronounced and immediate divergence in representational diversity between intact and ablated models. At layer 0, the intact model exhibits an Effective Rank approximately three times higher than that of the ablated model, indicating that positional embeddings inject substantial high-dimensional variation directly into the residual stream prior to any attention-based or data-dependent mixing.
 
-        \textbf{Results:} Figure 4 reveals a pronounced difference in representational diversity between intact and post-hoc ablated models that emerges immediately at the input layer. At layer 0, the intact model exhibits an Effective Rank approximately four times higher than that of the post-hoc ablated model, indicating that positional embeddings inject substantial high-dimensional diversity directly into the residual stream prior to any attention-based mixing.
+However, this initial diversity is not preserved. Intact models undergo a sharp collapse in Effective Rank within the first two layers, after which rank stabilizes to values comparable to those of ablated models for the remainder of the network. In contrast, ablated models begin in a low-rank regime and exhibit a more gradual evolution of rank, without the pronounced early collapse observed in intact models.
 
-        Strikingly, this initial advantage does not persist unaltered. The intact model undergoes a sharp collapse in Effective Rank within the first two layers, after which its rank stabilizes and remains only slightly higher than that of the post-hoc ablated model for the remainder of the network. In contrast, the post-hoc ablated model begins in a low-rank regime and does not exhibit a comparable early collapse, instead maintaining a relatively stable but consistently lower Effective Rank across depth.
+Mean token-wise cosine similarity provides a complementary view of this phenomenon. Intact models consistently display lower mean cosine similarity than ablated models in early layers (particularly layers 0 and 2), reflecting greater token-level decorrelation. As depth increases, mean cosine similarity converges across model variants, mirroring the convergence observed in Effective Rank, though intact models retain slightly lower similarity values throughout.
 
-        Mean token cosine similarity provides a complementary perspective. Across all layers and all runs, the post-hoc ablated model exhibits significantly higher token-wise similarity than the intact model, indicating persistent spatial homogenization when positional embeddings are removed. This elevated similarity is present from the earliest layer and does not disappear with depth, suggesting that the lack of positional information induces a sustained form of representational collapse across tokens.
+Importantly, these dynamics are absent in untrained intact models. Despite exhibiting elevated Effective Rank at layer 0, untrained intact models show weak variation in both metrics across depth and consistently low SSDC values that do not evolve with layer index (Figure~\ref{fig:APP_C2_main}). This indicates that the diversity injected by untrained PEs does not give rise to coherent spatial structure and instead behaves as unstructured noise.
 
-        Comparing the evolution of representational diversity across depth, we observe that untrained intact models do not exhibit the sharp post-early-layer collapse in effective rank seen in trained intact models. Consistent with this, the mean token-wise cosine similarity in untrained intact models remains approximately constant across depth, in contrast to the progressive increase observed in trained models.
-    
+\clearpage
     \subsection{Patch-Relative and Absolute-Position-Based Modes of Spatial Organization}
         \begin{figure}[t]
             \centering

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.26)  27 JAN 2026 11:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.12.26)  27 JAN 2026 12:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -681,56 +681,56 @@ s/layer_0_untrained_RPI.png> <../figures/layer_2_untrained_RPI.png> <../figures
 /layer_0_ablated.png> <../figures/layer_2_ablated.png>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<../figures/SSDC_section_44.pdf, id=204, 326.38965pt x 228.00833pt>
+ [4 <../figures/ERM_section_43.pdf> <../figures/MCS_section_43.pdf>]
+<../figures/SSDC_section_44.pdf, id=233, 326.38965pt x 228.00833pt>
 File: ../figures/SSDC_section_44.pdf Graphic file (type pdf)
 <use ../figures/SSDC_section_44.pdf>
-Package pdftex.def Info: ../figures/SSDC_section_44.pdf  used on input line 221
+Package pdftex.def Info: ../figures/SSDC_section_44.pdf  used on input line 220
 .
 (pdftex.def)             Requested size: 187.90271pt x 131.26727pt.
-<../figures/layer_2_perm_int.png, id=205, 462.528pt x 346.896pt>
+<../figures/layer_2_perm_int.png, id=234, 462.528pt x 346.896pt>
 File: ../figures/layer_2_perm_int.png Graphic file (type png)
 <use ../figures/layer_2_perm_int.png>
 Package pdftex.def Info: ../figures/layer_2_perm_int.png  used on input line 23
-1.
+0.
 (pdftex.def)             Requested size: 110.3927pt x 82.79092pt.
 
-Underfull \hbox (badness 1087) in paragraph at lines 232--232
+Underfull \hbox (badness 1087) in paragraph at lines 231--231
 []\OT1/ptm/m/it/9 (+20) (a) |\OT1/ptm/m/n/9 (+20) To-ken Co-sine Sim-i-lar-ity
  []
 
-<../figures/layer_2_perm_abl.png, id=206, 462.528pt x 346.896pt>
+<../figures/layer_2_perm_abl.png, id=235, 462.528pt x 346.896pt>
 File: ../figures/layer_2_perm_abl.png Graphic file (type png)
 <use ../figures/layer_2_perm_abl.png>
 Package pdftex.def Info: ../figures/layer_2_perm_abl.png  used on input line 23
-8.
+7.
 (pdftex.def)             Requested size: 110.3927pt x 82.79092pt.
 
-Underfull \hbox (badness 1087) in paragraph at lines 239--239
+Underfull \hbox (badness 1087) in paragraph at lines 238--238
 []\OT1/ptm/m/it/9 (+20) (b) |\OT1/ptm/m/n/9 (+20) To-ken Co-sine Sim-i-lar-ity
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4 <../figures/ERM_section_43.pdf> <../figures/MCS_section_43.pdf>]
 Underfull \vbox (badness 2189) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5 <../figures/SSDC_section_44.pdf> <../figures/layer_2_perm_int.png> <../figu
-res/layer_2_perm_abl.png>]
-<../figures/robustness_pointplot.pdf, id=253, 245.718pt x 180.675pt>
+ [5
+
+ <../figures/SSDC_section_44.pdf> <../figures/layer_2_perm_int.png> <../figures
+/layer_2_perm_abl.png>]
+<../figures/robustness_pointplot.pdf, id=255, 245.718pt x 180.675pt>
 File: ../figures/robustness_pointplot.pdf Graphic file (type pdf)
 <use ../figures/robustness_pointplot.pdf>
 Package pdftex.def Info: ../figures/robustness_pointplot.pdf  used on input lin
-e 269.
+e 268.
 (pdftex.def)             Requested size: 199.64731pt x 146.80634pt.
-<../figures/robustness_pointplot_GB.pdf, id=254, 245.718pt x 180.675pt>
+<../figures/robustness_pointplot_GB.pdf, id=256, 245.718pt x 180.675pt>
 File: ../figures/robustness_pointplot_GB.pdf Graphic file (type pdf)
 <use ../figures/robustness_pointplot_GB.pdf>
 Package pdftex.def Info: ../figures/robustness_pointplot_GB.pdf  used on input 
-line 276.
+line 275.
 (pdftex.def)             Requested size: 199.64731pt x 146.80634pt.
 
 Underfull \vbox (badness 1057) has occurred while \output is active []
@@ -775,50 +775,50 @@ Underfull \hbox (badness 10000) in paragraph at lines 107--115
 ) [9] [10
 
 ] [11]
-<../figures/layer_0_untrained_NPI.png, id=376, 462.528pt x 346.896pt>
+<../figures/layer_0_untrained_NPI.png, id=378, 462.528pt x 346.896pt>
 File: ../figures/layer_0_untrained_NPI.png Graphic file (type png)
 <use ../figures/layer_0_untrained_NPI.png>
 Package pdftex.def Info: ../figures/layer_0_untrained_NPI.png  used on input li
-ne 473.
+ne 472.
 (pdftex.def)             Requested size: 268.30385pt x 201.23686pt.
-<../figures/layer_2_untrained_NPI.png, id=377, 462.528pt x 346.896pt>
+<../figures/layer_2_untrained_NPI.png, id=379, 462.528pt x 346.896pt>
 File: ../figures/layer_2_untrained_NPI.png Graphic file (type png)
 <use ../figures/layer_2_untrained_NPI.png>
 Package pdftex.def Info: ../figures/layer_2_untrained_NPI.png  used on input li
-ne 475.
+ne 474.
 (pdftex.def)             Requested size: 268.30385pt x 201.23686pt.
  [12
 
  <../figures/layer_0_untrained_NPI.png> <../figures/layer_2_untrained_NPI.png>]
-<../figures/Appendix_SSDC_C1.pdf, id=386, 319.01646pt x 228.00833pt>
+<../figures/Appendix_SSDC_C1.pdf, id=388, 319.01646pt x 228.00833pt>
 File: ../figures/Appendix_SSDC_C1.pdf Graphic file (type pdf)
 <use ../figures/Appendix_SSDC_C1.pdf>
 Package pdftex.def Info: ../figures/Appendix_SSDC_C1.pdf  used on input line 50
-5.
+4.
 (pdftex.def)             Requested size: 234.15271pt x 167.35272pt.
-<../figures/layer_2_untrained_intact.png, id=387, 462.528pt x 346.896pt>
+<../figures/layer_2_untrained_intact.png, id=389, 462.528pt x 346.896pt>
 File: ../figures/layer_2_untrained_intact.png Graphic file (type png)
 <use ../figures/layer_2_untrained_intact.png>
 Package pdftex.def Info: ../figures/layer_2_untrained_intact.png  used on input
- line 511.
+ line 510.
 (pdftex.def)             Requested size: 234.15271pt x 175.61778pt.
  [13
 
  <../figures/Appendix_SSDC_C1.pdf> <../figures/layer_2_untrained_intact.png>]
-<../figures/APP_MCS_C3.pdf, id=407, 319.17519pt x 224.57362pt>
+<../figures/APP_MCS_C3.pdf, id=408, 319.17519pt x 224.57362pt>
 File: ../figures/APP_MCS_C3.pdf Graphic file (type pdf)
 <use ../figures/APP_MCS_C3.pdf>
-Package pdftex.def Info: ../figures/APP_MCS_C3.pdf  used on input line 529.
+Package pdftex.def Info: ../figures/APP_MCS_C3.pdf  used on input line 528.
 (pdftex.def)             Requested size: 234.15271pt x 164.7495pt.
-<../figures/APP_ERM_C3.pdf, id=408, 319.01646pt x 224.57362pt>
+<../figures/APP_ERM_C3.pdf, id=409, 319.01646pt x 224.57362pt>
 File: ../figures/APP_ERM_C3.pdf Graphic file (type pdf)
 <use ../figures/APP_ERM_C3.pdf>
-Package pdftex.def Info: ../figures/APP_ERM_C3.pdf  used on input line 535.
+Package pdftex.def Info: ../figures/APP_ERM_C3.pdf  used on input line 534.
 (pdftex.def)             Requested size: 234.15271pt x 164.83174pt.
-<../figures/APP_SSDC_C3.pdf, id=409, 319.01646pt x 224.57362pt>
+<../figures/APP_SSDC_C3.pdf, id=410, 319.01646pt x 224.57362pt>
 File: ../figures/APP_SSDC_C3.pdf Graphic file (type pdf)
 <use ../figures/APP_SSDC_C3.pdf>
-Package pdftex.def Info: ../figures/APP_SSDC_C3.pdf  used on input line 541.
+Package pdftex.def Info: ../figures/APP_SSDC_C3.pdf  used on input line 540.
 (pdftex.def)             Requested size: 234.15271pt x 164.83174pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -827,33 +827,33 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  <../figures/APP_MCS_C3.pdf> <../figures/APP_ERM_C3.pdf> <../figures/APP_SSDC_C
 3.pdf>]
-<../figures/Appendix_normal_acc_C4.pdf, id=449, 245.718pt x 180.675pt>
+<../figures/Appendix_normal_acc_C4.pdf, id=450, 245.718pt x 180.675pt>
 File: ../figures/Appendix_normal_acc_C4.pdf Graphic file (type pdf)
 <use ../figures/Appendix_normal_acc_C4.pdf>
 Package pdftex.def Info: ../figures/Appendix_normal_acc_C4.pdf  used on input l
-ine 557.
+ine 556.
 (pdftex.def)             Requested size: 156.10677pt x 114.79074pt.
-<../figures/Appendix_stylized_acc_C4.pdf, id=450, 245.718pt x 180.675pt>
+<../figures/Appendix_stylized_acc_C4.pdf, id=451, 245.718pt x 180.675pt>
 File: ../figures/Appendix_stylized_acc_C4.pdf Graphic file (type pdf)
 <use ../figures/Appendix_stylized_acc_C4.pdf>
 Package pdftex.def Info: ../figures/Appendix_stylized_acc_C4.pdf  used on input
- line 563.
+ line 562.
 (pdftex.def)             Requested size: 156.10677pt x 114.79074pt.
-<../figures/Appendix_gaussian_acc_C4.pdf, id=451, 245.718pt x 180.675pt>
+<../figures/Appendix_gaussian_acc_C4.pdf, id=452, 245.718pt x 180.675pt>
 File: ../figures/Appendix_gaussian_acc_C4.pdf Graphic file (type pdf)
 <use ../figures/Appendix_gaussian_acc_C4.pdf>
 Package pdftex.def Info: ../figures/Appendix_gaussian_acc_C4.pdf  used on input
- line 569.
+ line 568.
 (pdftex.def)             Requested size: 156.10677pt x 114.79074pt.
-<../figures/APP_SSDC_D1.pdf, id=452, 319.03404pt x 224.57362pt>
+<../figures/APP_SSDC_D1.pdf, id=453, 319.03404pt x 224.57362pt>
 File: ../figures/APP_SSDC_D1.pdf Graphic file (type pdf)
 <use ../figures/APP_SSDC_D1.pdf>
-Package pdftex.def Info: ../figures/APP_SSDC_D1.pdf  used on input line 582.
+Package pdftex.def Info: ../figures/APP_SSDC_D1.pdf  used on input line 581.
 (pdftex.def)             Requested size: 234.15271pt x 164.82489pt.
-<../figures/APP_ERM_D1.pdf, id=453, 319.01646pt x 224.40263pt>
+<../figures/APP_ERM_D1.pdf, id=454, 319.01646pt x 224.40263pt>
 File: ../figures/APP_ERM_D1.pdf Graphic file (type pdf)
 <use ../figures/APP_ERM_D1.pdf>
-Package pdftex.def Info: ../figures/APP_ERM_D1.pdf  used on input line 587.
+Package pdftex.def Info: ../figures/APP_ERM_D1.pdf  used on input line 586.
 (pdftex.def)             Requested size: 234.15271pt x 164.70625pt.
 [15 <../figures/Appendix_normal_acc_C4.pdf> <../figures/Appendix_stylized_acc_C
 4.pdf> <../figures/Appendix_gaussian_acc_C4.pdf>] [16 <../figures/APP_SSDC_D1.p
@@ -886,10 +886,10 @@ msfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (16 pages, 576149 bytes).
+Output written on main.pdf (16 pages, 576100 bytes).
 PDF statistics:
- 592 PDF objects out of 1000 (max. 8388607)
- 430 compressed objects within 5 object streams
+ 593 PDF objects out of 1000 (max. 8388607)
+ 431 compressed objects within 5 object streams
  76 named destinations out of 1000 (max. 500000)
  56182 words of extra memory for PDF output out of 61914 (max. 10000000)
 
