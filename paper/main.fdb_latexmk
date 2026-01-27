@@ -1,16 +1,18 @@
 # Fdb version 4
-["bibtex main"] 1769462052.34712 "main.aux" "main.bbl" "main" 1769462139.95989 0
+["bibtex main"] 1769541352.81023 "main.aux" "main.bbl" "main" 1769541363.63276 0
   "./icml2026.bst" 1762533924 27147 88eb4aed280e585571f8eac50f39a681 ""
   "./references.bib" 1769289702.63345 6157 d2b5ab4ab6b4ea50b0c56771de10276e ""
-  "main.aux" 1769462138.42677 22074 f3d021938a5b568c7a007e7081548935 "pdflatex"
+  "main.aux" 1769541361.64214 24060 2af302cbb52c04ed4a526ab2bc974cc5 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1769462133.21371 "main.tex" "main.pdf" "main" 1769462139.96101 0
+["pdflatex"] 1769541353.31973 "main.tex" "main.pdf" "main" 1769541363.63405 0
   "../figures/APP_ERM_C3.pdf" 1769460513.44593 13668 037d3ef6064a3848f8277685d1ee2247 ""
+  "../figures/APP_ERM_D1.pdf" 1769534886.1706 12466 0987f4e64695674eb76334ec61a19c78 ""
   "../figures/APP_MCS_C3.pdf" 1769460752.36586 12686 9fe43480c0ed126eecc129640f28a828 ""
   "../figures/APP_SSDC_C3.pdf" 1769461064.40446 12119 7f4e52c4a0afaf0152ee6b09ee5a4308 ""
+  "../figures/APP_SSDC_D1.pdf" 1769534644.04626 11620 3a149854fc37031180e6c994655c5a7c ""
   "../figures/Appendix_SSDC_C1.pdf" 1769373153.32287 10571 1cccb4c7198f47e1a03d86ed40c1adf3 ""
   "../figures/Appendix_gaussian_acc_C4.pdf" 1769455692.03748 11032 3519928599474e2e58d2eccc538cd6fb ""
   "../figures/Appendix_normal_acc_C4.pdf" 1769375716.47034 10736 1cb317019d3f4c3292e17e3f41ba23b3 ""
@@ -165,10 +167,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1766784150.00538 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1766784259 8214823 cc0482d0202066a11aab1bbfedc49937 ""
   "icml2026.sty" 1762533924 27344 8c96f291f57623e81d0a232c8de55616 ""
-  "main.aux" 1769462138.42677 22074 f3d021938a5b568c7a007e7081548935 "pdflatex"
-  "main.bbl" 1769462052.72561 6658 7476c952f9bb6ce6d8bd1f0b038c6274 "bibtex main"
-  "main.out" 1769462138.43277 6689 f49e0437e52f669e707fbc8220b0c845 "pdflatex"
-  "main.tex" 1769462131.34379 57745 1de39e5cb1f5172ed3e33ee47d891573 ""
+  "main.aux" 1769541361.64214 24060 2af302cbb52c04ed4a526ab2bc974cc5 "pdflatex"
+  "main.bbl" 1769541353.28702 6658 7476c952f9bb6ce6d8bd1f0b038c6274 "bibtex main"
+  "main.out" 1769541361.64914 7004 3250d7382c38157f606c396b2d49b803 "pdflatex"
+  "main.tex" 1769541338.64281 61016 5e745eb9d6da28bec3adde4a48b76f7c ""
   (generated)
   "main.aux"
   "main.log"

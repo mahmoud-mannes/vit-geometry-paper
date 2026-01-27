@@ -499,7 +499,7 @@ These findings indicate that positional embeddings act as a structural bias that
 
     \clearpage
     \subsection{Absence of Spatial Structure in Untrained Intact Models}
-        \begin{figure*}[t]
+        \begin{figure}[t]
             \centering
             \begin{subfigure}[b]{0.48\linewidth}
                 \includegraphics[width=\linewidth]{../figures/Appendix_SSDC_C1}
@@ -514,38 +514,38 @@ These findings indicate that positional embeddings act as a structural bias that
             \end{subfigure}
             \caption(\textbf{Spatial Structure in Untrained Intact Models.} Untrained positional embeddings suppress spatial structure by injecting unstructured positional perturbations, resulting in low SSDC and weak token-to-token correlations across depth.)
             \label{fig:APP_C2_main}
-        \end{figure*}
+        \end{figure}
         We observe that SSDC in the untrained intact model remains consistently low and invariant across depth. This behavior contrasts sharply with untrained ablated models and indicates an absence of coherent spatial structure. We attribute this effect to the presence of untrained positional embeddings, which introduce unstructured positional perturbations that disrupt the weak spatial correlations otherwise present in ViTs without positional encodings (Sections 4.1 and C.1).
 
         This interpretation is supported by the representative Token Cosine Similarity Matrix in Figure~\ref{fig:APP_C2_main}, which exhibits a substantially weaker diagonal structure and lower overall inter-token similarity compared to the untrained ablated model (Figure~\ref{fig:APP_C1}). Together, these observations indicate that the representational diversity observed in untrained intact models does not reflect meaningful spatial organization, but rather the injection of positional noise.
 
         In contrast, the trained intact model exhibits markedly different behavior: SSDC begins at a higher value and increases sharply from layer 0 to layer 2 (Figure~\ref{fig:SSDC_42}). When considered alongside the depth-wise evolution of representational diversity, this divergence highlights a key distinction between noise-induced diversity in untrained intact models and the emergence of functionally meaningful spatial structure during early stages of training.
-    
+    \clearpage
+
     \subsection{Effects of Post-hoc Ablation of Positional Embeddings}
         \begin{figure}[H]
-            \centering
-            \begin{subfigure}[b]{0.48\linewidth}
-                \includegraphics[width=\linewidth]{../figures/APP_MCS_C3}
-                \caption{\textbf{Mean Cosine Similarity Across Depth With and Without Positional Embeddings} Removing positional embeddings from a trained Intact model increases similarity among token representations in early layers, reflecting a collapse of representational diversity. Intact models maintain lower early-layer similarity, highlighting the role of positional embeddings in structuring diverse representations.}
-                \label{fig:APP_C3_MCS}
-            \end{subfigure}ERM
-            \hfill
-            \begin{subfigure}[b]{0.48\linewidth}
-                \includegraphics[width=\linewidth]{../figures/APP_ERM_C3}
-                \caption{\textbf{Effective Rank Across Depth With and Without Positional Embeddings.} Post-hoc ablation of positional embeddings substantially reduces effective rank, particularly in early layers, confirming that positional information supports the spread and dimensionality of learned representations. Intact models maintain higher rank across layers.}
-                \label{fig:APP_C3_ERM}
-            \end{subfigure}
-            \hfill
-            \begin{subfigure}[b]{0.48\linewidth}
-                \includegraphics[width=\linewidth]{../figures/APP_SSDC_C3}
-                \caption{\textbf{SSDC Across Depth With and Without Positional Embeddings} Removing positional embeddings lowers initial SSDC and delays the characteristic peak from layer 2 to around layer 4, which is also weaker in magnitude. This indicates that positional embeddings accelerate the formation of spatial structure in early layers and contribute to its overall magnitude.}
-                \label{fig:APP_C3_SSDC}
-            \end{subfigure}
+                \centering
+                \begin{subfigure}[b]{0.48\linewidth}
+                    \includegraphics[width=\linewidth]{../figures/APP_MCS_C3}
+                    \caption{\textbf{Mean Cosine Similarity Across Depth With and Without Positional Embeddings} Removing positional embeddings from a trained Intact model increases similarity among token representations in early layers, reflecting a collapse of representational diversity. Intact models maintain lower early-layer similarity, highlighting the role of positional embeddings in structuring diverse representations.}
+                    \label{fig:APP_C3_MCS}
+                \end{subfigure}ERM
+                \hfill
+                \begin{subfigure}[b]{0.48\linewidth}
+                    \includegraphics[width=\linewidth]{../figures/APP_ERM_C3}
+                    \caption{\textbf{Effective Rank Across Depth With and Without Positional Embeddings.} Post-hoc ablation of positional embeddings substantially reduces effective rank, particularly in early layers, confirming that positional information supports the spread and dimensionality of learned representations. Intact models maintain higher rank across layers.}
+                    \label{fig:APP_C3_ERM}
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[b]{0.48\linewidth}
+                    \includegraphics[width=\linewidth]{../figures/APP_SSDC_C3}
+                    \caption{\textbf{SSDC Across Depth With and Without Positional Embeddings} Removing positional embeddings lowers initial SSDC and delays the characteristic peak from layer 2 to around layer 4, which is also weaker in magnitude. This indicates that positional embeddings accelerate the formation of spatial structure in early layers and contribute to its overall magnitude.}
+                    \label{fig:APP_C3_SSDC}
+                \end{subfigure}
 
-            \caption{\textbf{Effects of Post-hoc Positional Embedding Removal.} Removing positional embeddings from a trained Intact model causes both representational diversity and SSDC to collapse.}
-            \label{fig:APP_C3_main}
+                \caption{\textbf{Effects of Post-hoc Positional Embedding Removal.} Removing positional embeddings from a trained Intact model causes both representational diversity and SSDC to collapse.}
+                \label{fig:APP_C3_main}
         \end{figure}
-
         Upon post-hoc removal of positional embeddings from an Intact model, representational diversity collapses immediately, as expected. More interestingly, SSDC also decreases: the initial value at layer 0 is lower, and the characteristic peak observed in intact models shifts to later layers (around layer 4) and is weaker in magnitude (Figure~\ref{fig:APP_C3_main}). This indicates that positional embeddings not only contribute to the overall level of spatial structure but also accelerate its early-layer development. These results confirm that the learned representations in Intact models rely on positional information to establish and maintain both representational diversity and spatial organization, rather than solely on patch-content correlations.
     \subsection{Model Performance Across Distributional Shifts}
 
@@ -575,4 +575,21 @@ These findings indicate that positional embeddings act as a structural bias that
     \end{figure}
 
 \section{Sanity Checks}
+    \subsection{Patch Content Reliance in RPT RPI Intact Models}
+        \begin{figure}[t]
+            \centering
+            \begin{subfigure}[b]{0.48\linewidth}
+                \includegraphics[width=\linewidth]{../figures/APP_SSDC_D1}
+                \caption{\textbf{Spatial Structure in RPT–RPI Intact Models.} SSDC in RPT–RPI Intact models remains near zero across depth, indicating the absence of stable spatial structure under random patch permutations. When the permutation is removed at inference (RPT–NPI Intact), SSDC exhibits non-zero values and characteristic early-layer growth between layers 0 and 2, consistent with healthy trained models. This behavior confirms that spatial structure in RPT–RPI Intact models is primarily dependent on patch-content alignment rather than absolute position. These findings are consistent across runs (n= 3 seeds).}
+            \end{subfigure}
+            \hfill
+            \begin{subfigure}[b]{0.48\linewidth}
+                \includegraphics[width=\linewidth]{../figures/APP_ERM_D1}
+                \caption{\textbf{Representational Diversity in RPT–RPI Intact Models.} Effective Rank across layers for Intact and RPT–RPI Intact models largely overlaps, with only a slight reduction in the first layer for RPT–RPI Intact models. This indicates that representational diversity is largely preserved under random patch permutations, despite the absence of stable spatial structure.}
+                \label{fig:APP_D1_ERM}
+            \end{subfigure}
+            \caption{\textbf{Spatial Structure and Representational Diversity in RPT–RPI Intact Models.} This figure compares spatial structure and representational diversity in RPT–RPI Intact models and their non-permuted inference counterpart (RPT–NPI Intact), where patch permutations are removed at inference. SSDC remains near zero under random patch permutations but recovers healthy early-layer growth when permutations are removed, indicating content-dependent spatial structure. Effective Rank closely matches that of fully Intact models across layers, with only a slight reduction in the first layer, confirming that representational diversity is largely preserved. Together, these results validate that RPT–RPI Intact models maintain diverse representations while expressing spatial structure primarily through patch-content alignment.}
+        \end{figure}
+    
+    Together, these results confirm that RPT–RPI Intact models preserve substantial representational diversity while relying on patch-content alignment for spatial organization. The near-zero SSDC under permutation, coupled with the recovery of healthy SSDC dynamics when permutations are removed at inference (RPT–NPI Intact), demonstrates that spatial structure is present but expressed through content-dependent rather than absolute positional cues. The close correspondence in Effective Rank further verifies that this behavior is not driven by representational collapse. These observations serve as a sanity check that RPT–RPI Intact models behave consistently with their intended design and that our metrics reliably distinguish spatial structure from representational diversity.
 \end{document}
