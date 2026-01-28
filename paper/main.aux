@@ -37,8 +37,8 @@
 \newlabel{sub@fig:er_values}{{a}{4}{Effective Rank across depth (Intact vs Ablated vs Untrained Intact)}{figure.caption.4}{}}
 \newlabel{fig:cos_sim_values}{{4b}{4}{Mean Token Cosine Similarity across depth (Intact vs Ablated vs Untrained Intact)}{figure.caption.4}{}}
 \newlabel{sub@fig:cos_sim_values}{{b}{4}{Mean Token Cosine Similarity across depth (Intact vs Ablated vs Untrained Intact)}{figure.caption.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Early-layer representational diversity under intact and ablated positional embeddings. Left: Effective Rank of the residual stream across layers. Right: Mean token-wise cosine similarity across layers. Results are shown for a fully intact ViT, a model with PEs removed during training and at inference, and a completely untrained intact model. The intact model exhibits substantially higher Effective Rank at layer 0 followed by an early collapse, while the ablated model starts from a low-rank regime and remains lower on average until later layers. Mean token cosine similarity provides a complementary view, as it is higher in the ablated model than in the intact model on average across all layers. }}{4}{figure.caption.4}\protected@file@percent }
-\newlabel{fig:4_3_main}{{4}{4}{Early-layer representational diversity under intact and ablated positional embeddings. Left: Effective Rank of the residual stream across layers. Right: Mean token-wise cosine similarity across layers. Results are shown for a fully intact ViT, a model with PEs removed during training and at inference, and a completely untrained intact model. The intact model exhibits substantially higher Effective Rank at layer 0 followed by an early collapse, while the ablated model starts from a low-rank regime and remains lower on average until later layers. Mean token cosine similarity provides a complementary view, as it is higher in the ablated model than in the intact model on average across all layers}{figure.caption.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Early-layer representational diversity under intact and ablated positional embeddings. Left: Effective Rank of the residual stream across layers. Right: Mean token-wise cosine similarity across layers. Results are shown for a fully intact ViT, an ablated model with PEs removed during training and at inference, and a completely untrained intact model. The intact model exhibits substantially higher Effective Rank at layer 0 followed by an early collapse, while the ablated model starts from a low-rank regime and remains lower on average until later layers. Mean token cosine similarity provides a complementary view, as it is higher in the ablated model than in the intact model on average across all layers. }}{4}{figure.caption.4}\protected@file@percent }
+\newlabel{fig:4_3_main}{{4}{4}{Early-layer representational diversity under intact and ablated positional embeddings. Left: Effective Rank of the residual stream across layers. Right: Mean token-wise cosine similarity across layers. Results are shown for a fully intact ViT, an ablated model with PEs removed during training and at inference, and a completely untrained intact model. The intact model exhibits substantially higher Effective Rank at layer 0 followed by an early collapse, while the ablated model starts from a low-rank regime and remains lower on average until later layers. Mean token cosine similarity provides a complementary view, as it is higher in the ablated model than in the intact model on average across all layers}{figure.caption.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Positional Embeddings Inject Early-Layer Representational Diversity}{4}{subsection.4.3}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces \textbf  {SSDC across depth for intact models, and intact/ablated models that have had their tokens permuted randomly at inference.} The SSDC collapses to near-zero values upon permutation of the tokens of the ablated model, whereas the intact model's SSDC only takes a slight hit after permutation. }}{5}{figure.caption.5}\protected@file@percent }
 \newlabel{fig:SSDC_44}{{5}{5}{\textbf {SSDC across depth for intact models, and intact/ablated models that have had their tokens permuted randomly at inference.} The SSDC collapses to near-zero values upon permutation of the tokens of the ablated model, whereas the intact model's SSDC only takes a slight hit after permutation}{figure.caption.5}{}}
@@ -60,6 +60,7 @@
 \citation{kazemnejad2023the}
 \citation{Islam*2020How}
 \citation{d’Ascoli_2022,Liu2021swin}
+\citation{dosovitskiy2021an,chu2023conditional}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Related Work}{7}{section.6}\protected@file@percent }
 \citation{raghu2021do}
 \citation{kobayashi-etal-2021-incorporating}
@@ -72,7 +73,6 @@
 \citation{dosovitskiy2021an,chu2023conditional}
 \bibdata{references}
 \@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{8}{section.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {8}Impact Statements}{8}{section.8}\protected@file@percent }
 \bibcite{Bhojanapalli2021robust}{{1}{2021}{{Bhojanapalli et~al.}}{{Bhojanapalli, Chakrabarti, Glasner, Li, Unterthiner, and Veit}}}
 \bibcite{chu2023conditional}{{2}{2023}{{Chu et~al.}}{{Chu, Tian, Zhang, Wang, and Shen}}}
 \bibcite{pmlr-v139-dong21a}{{3}{2021}{{Dong et~al.}}{{Dong, Cordonnier, and Loukas}}}
@@ -87,6 +87,7 @@
 \bibcite{Paul_Chen_2022}{{12}{2022}{{Paul \& Chen}}{{Paul and Chen}}}
 \bibcite{raghu2021do}{{13}{2021}{{Raghu et~al.}}{{Raghu, Unterthiner, Kornblith, Zhang, and Dosovitskiy}}}
 \bibstyle{icml2026}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Impact Statements}{9}{section.8}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {A}Experimental Setup and Hyperparameters}{10}{appendix.A}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Model architecture and training hyperparameters used in all experiments.}}{10}{table.caption.10}\protected@file@percent }
 \newlabel{tab:hyperparams}{{1}{10}{Model architecture and training hyperparameters used in all experiments}{table.caption.10}{}}
